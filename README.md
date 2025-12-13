@@ -1360,7 +1360,7 @@
                 <div class="partners-grid">
                     <div class="partner-card fade-in-up">
                         <div class="partner-logo">
-                            <i class="fas fa-shield-alt" style="font-size: 3.5rem; color: var(--accent);"></i>
+                            <i class="eset.jpg" style="font-size: 3.5rem; color: var(--accent);"></i>
                         </div>
                         <h3 class="partner-name">ESET Cybersecurity</h3>
                         <p class="partner-description">World-leading cybersecurity solutions provider with advanced threat detection and prevention technologies.</p>
@@ -1368,7 +1368,7 @@
                     
                     <div class="partner-card fade-in-up">
                         <div class="partner-logo">
-                            <i class="fas fa-lock" style="font-size: 3.5rem; color: var(--accent);"></i>
+                            <i class="sophos.png" style="font-size: 3.5rem; color: var(--accent);"></i>
                         </div>
                         <h3 class="partner-name">SOPHOS Security</h3>
                         <p class="partner-description">Advanced network security and threat intelligence solutions for businesses of all sizes.</p>
@@ -1376,7 +1376,7 @@
                     
                     <div class="partner-card fade-in-up">
                         <div class="partner-logo">
-                            <i class="fas fa-cloud" style="font-size: 3.5rem; color: var(--accent);"></i>
+                            <i class="azure.png" style="font-size: 3.5rem; color: var(--accent);"></i>
                         </div>
                         <h3 class="partner-name">Microsoft Azure</h3>
                         <p class="partner-description">Leading cloud platform for building, deploying, and managing applications and services.</p>
@@ -1384,7 +1384,7 @@
                     
                     <div class="partner-card fade-in-up">
                         <div class="partner-logo">
-                            <i class="fas fa-network-wired" style="font-size: 3.5rem; color: var(--accent);"></i>
+                            <i class="cisco.png" style="font-size: 3.5rem; color: var(--accent);"></i>
                         </div>
                         <h3 class="partner-name">Cisco Systems</h3>
                         <p class="partner-description">Global leader in networking, cybersecurity, and collaboration solutions for enterprises.</p>
@@ -1486,10 +1486,7 @@
                     <a href="#home" class="logo">
                         <!-- Logo Placeholder - Replace with actual logo image -->
                         <div class="logo-placeholder">
-                            <div class="logo-main">MATEOR LABS</div>
-                            <div class="logo-subtitle">SAVVYFORGED</div>
-                            <div class="logo-tagline">TECHNOLOGICAL EMINENCE</div>
-                            <div class="logo-year">SINCE 2021</div>
+                            <img src="mateor-labs-high-resolution-logo.png" alt="Mateor Labs Logo" style="height: 60px; width: auto;">
                         </div>
                     </a>
                     <p>Leading provider of innovative technology solutions, software deployment, network configuration, and ICT equipment since 2021.</p>
