@@ -1360,7 +1360,7 @@
                 <div class="partners-grid">
                     <div class="partner-card fade-in-up">
                         <div class="partner-logo">
-                            <i class="eset.jpg" style="font-size: 3.5rem; color: var(--accent);"></i>
+                            <!-- <img src="eset.jpg" alt="ESET" style="height: 3.5rem; width: auto;"> -->
                         </div>
                         <h3 class="partner-name">ESET Cybersecurity</h3>
                         <p class="partner-description">World-leading cybersecurity solutions provider with advanced threat detection and prevention technologies.</p>
@@ -1368,7 +1368,7 @@
                     
                     <div class="partner-card fade-in-up">
                         <div class="partner-logo">
-                            <i class="sophos.png" style="font-size: 3.5rem; color: var(--accent);"></i>
+                            <!-- <img src="sophos.png" alt="ESET" style="height: 3.5rem; width: auto;"> -->
                         </div>
                         <h3 class="partner-name">SOPHOS Security</h3>
                         <p class="partner-description">Advanced network security and threat intelligence solutions for businesses of all sizes.</p>
@@ -1376,7 +1376,7 @@
                     
                     <div class="partner-card fade-in-up">
                         <div class="partner-logo">
-                            <i class="azure.png" style="font-size: 3.5rem; color: var(--accent);"></i>
+                            <!-- <img src="azure.png" alt="ESET" style="height: 3.5rem; width: auto;"> -->
                         </div>
                         <h3 class="partner-name">Microsoft Azure</h3>
                         <p class="partner-description">Leading cloud platform for building, deploying, and managing applications and services.</p>
@@ -1384,7 +1384,7 @@
                     
                     <div class="partner-card fade-in-up">
                         <div class="partner-logo">
-                            <i class="cisco.png" style="font-size: 3.5rem; color: var(--accent);"></i>
+                           <!-- <img src="cisco.png" alt="ESET" style="height: 3.5rem; width: auto;"> -->
                         </div>
                         <h3 class="partner-name">Cisco Systems</h3>
                         <p class="partner-description">Global leader in networking, cybersecurity, and collaboration solutions for enterprises.</p>
