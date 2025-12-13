@@ -46,8 +46,8 @@
             position: relative;
         }
 
-        /* Motion Background Container */
-        .motion-background {
+        /* Video Background Container */
+        .video-background {
             position: fixed;
             top: 0;
             left: 0;
@@ -55,261 +55,68 @@
             height: 100%;
             z-index: -1;
             overflow: hidden;
-            background: linear-gradient(135deg, var(--secondary) 0%, var(--primary) 100%);
-            opacity: 0.95;
         }
 
-        /* People Collaboration Scene */
-        .collaboration-scene {
+        .background-video {
             position: absolute;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            transform: translate(-50%, -50%);
+            object-fit: cover;
+            opacity: 0.12; /* Reduced transparency for text visibility */
+            filter: grayscale(60%) brightness(0.8) contrast(1.2);
+        }
+
+        /* Gradient overlay for better text contrast */
+        .video-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
             width: 100%;
             height: 100%;
-            perspective: 1000px;
-        }
-
-        /* Team Groups */
-        .team-group {
-            position: absolute;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            transition: transform 8s ease-in-out, opacity 3s ease;
-            opacity: 0.6;
-        }
-
-        .team-group:hover {
-            opacity: 0.8;
-            transform: scale(1.05);
-        }
-
-        /* Person Elements */
-        .person {
-            position: relative;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 5px;
-            border: 2px solid rgba(255, 255, 255, 0.2);
-            box-shadow: 0 0 20px rgba(0, 119, 255, 0.1);
-            animation: personFloat 15s ease-in-out infinite;
-        }
-
-        .person::before {
-            content: '';
-            position: absolute;
-            width: 120%;
-            height: 120%;
-            border-radius: 50%;
-            background: rgba(0, 119, 255, 0.05);
-            z-index: -1;
-            animation: pulse 4s ease-in-out infinite;
-        }
-
-        .person i {
-            color: rgba(255, 255, 255, 0.7);
+            background: linear-gradient(
+                135deg,
+                rgba(255, 255, 255, 0.85) 0%,
+                rgba(248, 249, 250, 0.9) 50%,
+                rgba(255, 255, 255, 0.95) 100%
+            );
             z-index: 1;
         }
 
-        /* Discussion Bubbles */
-        .discussion-bubble {
+        /* Sections with white backgrounds for better readability */
+        .section {
+            background-color: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(5px);
+        }
+
+        .hero, .contact {
+            background-color: transparent;
+        }
+
+        .hero::before, .contact::before {
+            content: '';
             position: absolute;
-            background: rgba(255, 255, 255, 0.9);
-            border-radius: 20px;
-            padding: 10px 15px;
-            font-size: 0.8rem;
-            color: var(--primary);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-            opacity: 0;
-            transform: scale(0.8);
-            animation: bubbleTalk 6s ease-in-out infinite;
-            max-width: 200px;
-            text-align: center;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.75) 0%, rgba(26, 26, 26, 0.85) 100%);
+            z-index: -1;
+        }
+
+        .hero .container, .contact .container {
+            position: relative;
             z-index: 2;
         }
 
-        .discussion-bubble::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            border-width: 10px 10px 0;
-            border-style: solid;
-            border-color: rgba(255, 255, 255, 0.9) transparent transparent;
-        }
-
-        /* Whiteboard Elements */
-        .whiteboard {
-            position: absolute;
-            background: rgba(255, 255, 255, 0.95);
-            border-radius: 10px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            padding: 15px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            opacity: 0.8;
-            transform: perspective(1000px) rotateX(5deg);
-            transition: transform 5s ease;
-        }
-
-        .whiteboard:hover {
-            transform: perspective(1000px) rotateX(0deg) scale(1.05);
-            opacity: 0.9;
-        }
-
-        .whiteboard-content {
-            color: var(--primary);
-            font-family: 'Courier New', monospace;
-            font-size: 0.9rem;
-            line-height: 1.4;
-        }
-
-        /* Code Window Elements */
-        .code-window {
-            position: absolute;
-            background: rgba(30, 30, 30, 0.9);
-            border-radius: 8px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
-            padding: 15px;
-            font-family: 'Courier New', monospace;
-            font-size: 0.9rem;
-            color: #00ff88;
-            opacity: 0.7;
-            animation: codeTyping 20s linear infinite;
-            overflow: hidden;
-        }
-
-        .code-header {
-            display: flex;
-            align-items: center;
-            margin-bottom: 10px;
-            padding-bottom: 5px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .code-dot {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            margin-right: 5px;
-        }
-
-        .code-dot.red { background: #ff5f56; }
-        .code-dot.yellow { background: #ffbd2e; }
-        .code-dot.green { background: #27ca3f; }
-
-        /* Network Diagram Elements */
-        .network-node {
-            position: absolute;
-            width: 50px;
-            height: 50px;
-            background: rgba(0, 119, 255, 0.2);
-            border-radius: 50%;
-            border: 2px solid rgba(0, 119, 255, 0.4);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            animation: nodePulse 8s ease-in-out infinite;
-        }
-
-        .network-node i {
-            color: rgba(0, 119, 255, 0.7);
-        }
-
-        .network-connection {
-            position: absolute;
-            height: 2px;
-            background: linear-gradient(90deg, transparent, rgba(0, 119, 255, 0.3), transparent);
-            transform-origin: left center;
-            animation: dataFlow 3s linear infinite;
-        }
-
-        /* Animations */
-        @keyframes personFloat {
-            0%, 100% {
-                transform: translateY(0) rotate(0deg);
-            }
-            33% {
-                transform: translateY(-10px) rotate(2deg);
-            }
-            66% {
-                transform: translateY(5px) rotate(-1deg);
-            }
-        }
-
-        @keyframes bubbleTalk {
-            0%, 100% {
-                opacity: 0;
-                transform: scale(0.8) translateY(10px);
-            }
-            15%, 85% {
-                opacity: 1;
-                transform: scale(1) translateY(0);
-            }
-        }
-
-        @keyframes codeTyping {
-            0% {
-                background-position: 0 0;
-            }
-            100% {
-                background-position: 0 100px;
-            }
-        }
-
-        @keyframes nodePulse {
-            0%, 100% {
-                transform: scale(1);
-                box-shadow: 0 0 0 rgba(0, 119, 255, 0.2);
-            }
-            50% {
-                transform: scale(1.1);
-                box-shadow: 0 0 20px rgba(0, 119, 255, 0.4);
-            }
-        }
-
-        @keyframes dataFlow {
-            0% {
-                transform: scaleX(0);
-                opacity: 0;
-            }
-            10% {
-                opacity: 1;
-            }
-            90% {
-                opacity: 1;
-            }
-            100% {
-                transform: scaleX(1);
-                opacity: 0;
-            }
-        }
-
-        @keyframes pulse {
-            0%, 100% {
-                transform: scale(1);
-                opacity: 0.5;
-            }
-            50% {
-                transform: scale(1.2);
-                opacity: 0.8;
-            }
-        }
-
-        /* Add a semi-transparent overlay to ensure content readability */
-        .content-overlay {
-            position: relative;
-            z-index: 1;
-            background: rgba(255, 255, 255, 0.97);
-        }
-
-        .hero .content-overlay,
-        .contact .content-overlay {
-            background: transparent;
+        /* Cards with slight transparency to show background */
+        .partner-card, .portfolio-item, .service-image, .about-image, .hero-image {
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
         }
 
         h1, h2, h3, h4, h5 {
@@ -543,17 +350,6 @@
             overflow: hidden;
         }
 
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, rgba(0, 0, 0, 0.85) 0%, rgba(26, 26, 26, 0.95) 100%);
-            z-index: 1;
-        }
-
         .hero-container {
             position: relative;
             z-index: 2;
@@ -631,7 +427,7 @@
 
         /* Services */
         .services {
-            background-color: var(--background-alt);
+            background-color: rgba(248, 249, 250, 0.85);
         }
 
         .services-tabs {
@@ -733,7 +529,7 @@
         }
 
         .partner-card {
-            background-color: var(--card-bg);
+            background-color: rgba(255, 255, 255, 0.95);
             border-radius: var(--border-radius);
             padding: 40px 30px;
             text-align: center;
@@ -777,7 +573,7 @@
 
         /* Portfolio */
         .portfolio {
-            background-color: var(--background-alt);
+            background-color: rgba(248, 249, 250, 0.85);
         }
 
         .portfolio-grid {
@@ -787,7 +583,7 @@
         }
 
         .portfolio-item {
-            background-color: var(--card-bg);
+            background-color: rgba(255, 255, 255, 0.95);
             border-radius: var(--border-radius);
             overflow: hidden;
             box-shadow: var(--shadow);
@@ -906,22 +702,6 @@
             background-color: var(--secondary);
             color: white;
             position: relative;
-        }
-
-        .contact::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, rgba(0, 0, 0, 0.85) 0%, rgba(26, 26, 26, 0.95) 100%);
-            z-index: 1;
-        }
-
-        .contact .container {
-            position: relative;
-            z-index: 2;
         }
 
         .contact .section-title,
@@ -1133,26 +913,21 @@
             color: var(--primary);
         }
 
-        .logo-main {
-            font-size: 2.2rem;
-            line-height: 1;
-            letter-spacing: 1px;
-        }
-
-        .logo-subtitle {
-            font-size: 0.9rem;
-            color: var(--accent);
-            letter-spacing: 2px;
-            margin-top: 5px;
-            font-weight: 600;
-        }
-
-        .logo-tagline {
-            font-size: 0.7rem;
-            color: var(--text-light);
-            letter-spacing: 1px;
-            margin-top: 2px;
-            font-weight: 500;
+        /* Video Fallback for mobile */
+        @media (max-width: 768px) {
+            .background-video {
+                opacity: 0.08; /* Even more transparent on mobile */
+            }
+            
+            .video-fallback {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: rgba(255, 255, 255, 0.7);
+                font-size: 0.9rem;
+                text-align: center;
+                padding: 20px;
+            }
         }
 
         /* Responsive */
@@ -1178,11 +953,6 @@
             
             .footer-container {
                 grid-template-columns: 1fr 1fr;
-            }
-
-            .person {
-                width: 35px !important;
-                height: 35px !important;
             }
         }
 
@@ -1263,19 +1033,6 @@
             .logo-placeholder .logo-main {
                 font-size: 1.8rem;
             }
-
-            .person {
-                width: 30px !important;
-                height: 30px !important;
-            }
-
-            .discussion-bubble {
-                display: none;
-            }
-
-            .whiteboard, .code-window {
-                transform: scale(0.8);
-            }
         }
 
         @media (max-width: 576px) {
@@ -1303,22 +1060,84 @@
             .logo-placeholder .logo-main {
                 font-size: 1.5rem;
             }
+        }
 
-            .person {
-                width: 25px !important;
-                height: 25px !important;
-            }
+        /* Video Loading State */
+        .video-loading {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 1rem;
+        }
 
-            .whiteboard, .code-window {
-                display: none;
-            }
+        /* Instructions for custom video */
+        .video-instructions {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            font-size: 0.8rem;
+            max-width: 300px;
+            display: none; /* Hide by default */
+            z-index: 3;
         }
     </style>
 </head>
 <body>
-    <!-- Motion Background with People Discussing -->
-    <div class="motion-background" id="motionBackground">
-        <div class="collaboration-scene" id="collaborationScene"></div>
+    <!-- Video Background with Real People -->
+    <div class="video-background">
+        <!-- 
+            VIDEO SOURCE INSTRUCTIONS:
+            
+            OPTION 1: Use a free stock video from Pexels/Videvo
+            Replace the src below with your chosen video URL
+            
+            OPTION 2: Use your own video file
+            Upload your video to your server and update the src
+            
+            Recommended video topics:
+            - People discussing tech projects
+            - Team collaboration in office
+            - Developers coding together
+            - Network engineers setting up equipment
+            - IT professionals in meetings
+            
+            Video should be:
+            - MP4 format for compatibility
+            - 10-30 seconds looped
+            - High quality but compressed
+            - Muted with no audio needed
+        -->
+        <video class="background-video" autoplay muted loop playsinline>
+            <!-- Primary video source - Replace with your video -->
+            <source src="https://assets.mixkit.co/videos/preview/mixkit-professional-engineers-discussing-a-project-43706-large.mp4" type="video/mp4">
+            
+            <!-- Fallback video source - Add additional formats if needed -->
+            <source src="https://cdn.videvo.net/videvo_files/video/free/2016-08/large_watermarked/Preparados_para_la_reunion_Stock_Video_hd_video_h264_1080p_25fps.mp4" type="video/mp4">
+            
+            <!-- Fallback image if video doesn't load -->
+            <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" alt="Team Collaboration Background">
+            
+            Your browser does not support the video tag.
+        </video>
+        
+        <!-- Gradient overlay for better text contrast -->
+        <div class="video-overlay"></div>
+        
+        <!-- Loading indicator -->
+        <div class="video-loading" id="videoLoading">
+            <i class="fas fa-spinner fa-spin"></i> Loading background...
+        </div>
+        
+        <!-- Instructions (visible only on hover for developers) -->
+        <div class="video-instructions" id="videoInstructions">
+            <strong>Video Background:</strong> To use your own video, replace the video source URLs in the code with your MP4 file links. Recommended: 10-30 second loop of people discussing tech projects.
+        </div>
     </div>
 
     <!-- Header -->
@@ -1831,266 +1650,40 @@
     </footer>
 
     <script>
-        // Create Collaboration Scene with People Discussing
-        function createCollaborationScene() {
-            const scene = document.getElementById('collaborationScene');
-            
-            // Clear existing content
-            scene.innerHTML = '';
-            
-            // Create 5-7 team groups (clusters of people discussing)
-            const teamCount = 5 + Math.floor(Math.random() * 3);
-            
-            for (let i = 0; i < teamCount; i++) {
-                createTeamGroup(scene, i);
+        // Video Background Management
+        const video = document.querySelector('.background-video');
+        const videoLoading = document.getElementById('videoLoading');
+        const videoInstructions = document.getElementById('videoInstructions');
+
+        // Show video loading state
+        video.addEventListener('loadstart', () => {
+            videoLoading.style.display = 'block';
+        });
+
+        // Hide loading when video can play
+        video.addEventListener('canplay', () => {
+            videoLoading.style.display = 'none';
+        });
+
+        // Show instructions on Ctrl+Click
+        document.addEventListener('keydown', (e) => {
+            if (e.ctrlKey && e.shiftKey) {
+                videoInstructions.style.display = 'block';
+                setTimeout(() => {
+                    videoInstructions.style.display = 'none';
+                }, 5000);
             }
-            
-            // Create some individual network/code elements
-            createTechElements(scene);
-        }
-        
-        function createTeamGroup(scene, index) {
-            const group = document.createElement('div');
-            group.className = 'team-group';
-            
-            // Position the group
-            const left = 10 + (index * 15) + (Math.random() * 10);
-            const top = 10 + (Math.random() * 70);
-            group.style.left = `${left}%`;
-            group.style.top = `${top}%`;
-            group.style.transform = `scale(${0.8 + Math.random() * 0.4})`;
-            
-            // Create 2-4 people in the group
-            const personCount = 2 + Math.floor(Math.random() * 3);
-            const positions = [
-                {x: 0, y: 0},
-                {x: 40, y: -20},
-                {x: -40, y: 20},
-                {x: 20, y: 40}
-            ];
-            
-            for (let i = 0; i < personCount; i++) {
-                const person = createPerson(positions[i] || {x: Math.random() * 60 - 30, y: Math.random() * 60 - 30});
-                group.appendChild(person);
-                
-                // Add discussion bubble for some people
-                if (Math.random() > 0.5 && i < 2) {
-                    const bubble = createDiscussionBubble(i, personCount);
-                    bubble.style.left = `${positions[i]?.x || 0}px`;
-                    bubble.style.top = `${(positions[i]?.y || 0) - 50}px`;
-                    bubble.style.animationDelay = `${Math.random() * 2}s`;
-                    group.appendChild(bubble);
-                }
-            }
-            
-            // Add whiteboard or code window for some groups
-            if (Math.random() > 0.6) {
-                if (Math.random() > 0.5) {
-                    const whiteboard = createWhiteboard();
-                    whiteboard.style.left = '60px';
-                    whiteboard.style.top = '-30px';
-                    group.appendChild(whiteboard);
-                } else {
-                    const codeWindow = createCodeWindow();
-                    codeWindow.style.left = '80px';
-                    codeWindow.style.top = '20px';
-                    group.appendChild(codeWindow);
-                }
-            }
-            
-            scene.appendChild(group);
-            
-            // Add slow movement to the group
-            setInterval(() => {
-                const x = left + (Math.random() * 10 - 5);
-                const y = top + (Math.random() * 10 - 5);
-                group.style.transform = `translate(${x - left}px, ${y - top}px) scale(${0.8 + Math.random() * 0.4})`;
-            }, 8000 + Math.random() * 7000);
-        }
-        
-        function createPerson(position) {
-            const person = document.createElement('div');
-            person.className = 'person';
-            
-            // Random size for variety
-            const size = 40 + Math.random() * 20;
-            person.style.width = `${size}px`;
-            person.style.height = `${size}px`;
-            person.style.left = `${position.x}px`;
-            person.style.top = `${position.y}px`;
-            
-            // Random icon representing different roles
-            const icons = ['fa-user', 'fa-user-tie', 'fa-user-ninja', 'fa-user-graduate', 'fa-user-astronaut'];
-            const icon = icons[Math.floor(Math.random() * icons.length)];
-            
-            const iconEl = document.createElement('i');
-            iconEl.className = `fas ${icon}`;
-            iconEl.style.fontSize = `${size * 0.5}px`;
-            person.appendChild(iconEl);
-            
-            // Random animation delay
-            person.style.animationDelay = `${Math.random() * 5}s`;
-            
-            return person;
-        }
-        
-        function createDiscussionBubble(index, groupSize) {
-            const bubble = document.createElement('div');
-            bubble.className = 'discussion-bubble';
-            
-            // Different content based on group size and position
-            const discussions = [
-                "Let's deploy this feature",
-                "Network needs optimization",
-                "Security review required",
-                "Client feedback integrated",
-                "Testing phase complete",
-                "Ready for production",
-                "Need more resources",
-                "API integration done"
-            ];
-            
-            const content = discussions[Math.floor(Math.random() * discussions.length)];
-            bubble.textContent = content;
-            
-            // Style based on position
-            if (index === 0) {
-                bubble.style.transformOrigin = 'bottom center';
-            } else {
-                bubble.style.transformOrigin = 'top center';
-            }
-            
-            return bubble;
-        }
-        
-        function createWhiteboard() {
-            const whiteboard = document.createElement('div');
-            whiteboard.className = 'whiteboard';
-            whiteboard.style.width = '120px';
-            whiteboard.style.height = '80px';
-            
-            const content = document.createElement('div');
-            content.className = 'whiteboard-content';
-            
-            // Different whiteboard content
-            const contents = [
-                "Architecture\nDiagram →",
-                "API\nEndpoints",
-                "User\nFlow",
-                "DB Schema",
-                "Network\nLayout"
-            ];
-            
-            content.textContent = contents[Math.floor(Math.random() * contents.length)];
-            whiteboard.appendChild(content);
-            
-            return whiteboard;
-        }
-        
-        function createCodeWindow() {
-            const codeWindow = document.createElement('div');
-            codeWindow.className = 'code-window';
-            codeWindow.style.width = '150px';
-            codeWindow.style.height = '100px';
-            
-            // Header with dots
-            const header = document.createElement('div');
-            header.className = 'code-header';
-            
-            const redDot = document.createElement('div');
-            redDot.className = 'code-dot red';
-            header.appendChild(redDot);
-            
-            const yellowDot = document.createElement('div');
-            yellowDot.className = 'code-dot yellow';
-            header.appendChild(yellowDot);
-            
-            const greenDot = document.createElement('div');
-            greenDot.className = 'code-dot green';
-            header.appendChild(greenDot);
-            
-            codeWindow.appendChild(header);
-            
-            // Code content
-            const codeContent = document.createElement('div');
-            codeContent.style.fontSize = '0.7rem';
-            codeContent.style.lineHeight = '1.3';
-            
-            const codeSnippets = [
-                "function deploy() {\n  // Code here\n  return success;\n}",
-                "const network = {\n  nodes: [...],\n  connections: {}\n};",
-                "if (securityCheck()) {\n  proceed();\n}",
-                "api.post('/deploy',\n  config => success)"
-            ];
-            
-            codeContent.textContent = codeSnippets[Math.floor(Math.random() * codeSnippets.length)];
-            codeWindow.appendChild(codeContent);
-            
-            return codeWindow;
-        }
-        
-        function createTechElements(scene) {
-            // Add some network nodes
-            for (let i = 0; i < 4; i++) {
-                const node = document.createElement('div');
-                node.className = 'network-node';
-                node.style.left = `${10 + Math.random() * 80}%`;
-                node.style.top = `${10 + Math.random() * 80}%`;
-                node.style.animationDelay = `${Math.random() * 5}s`;
-                
-                const icon = document.createElement('i');
-                icon.className = 'fas fa-server';
-                node.appendChild(icon);
-                
-                scene.appendChild(node);
-            }
-            
-            // Add some connections between nodes
-            setTimeout(() => {
-                const nodes = document.querySelectorAll('.network-node');
-                if (nodes.length >= 2) {
-                    for (let i = 0; i < 3; i++) {
-                        const node1 = nodes[Math.floor(Math.random() * nodes.length)];
-                        const node2 = nodes[Math.floor(Math.random() * nodes.length)];
-                        
-                        if (node1 !== node2) {
-                            createConnection(node1, node2, scene);
-                        }
-                    }
-                }
-            }, 1000);
-        }
-        
-        function createConnection(node1, node2, scene) {
-            const rect1 = node1.getBoundingClientRect();
-            const rect2 = node2.getBoundingClientRect();
-            
-            const x1 = rect1.left + rect1.width / 2;
-            const y1 = rect1.top + rect1.height / 2;
-            const x2 = rect2.left + rect2.width / 2;
-            const y2 = rect2.top + rect2.height / 2;
-            
-            const distance = Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
-            const angle = Math.atan2(y2 - y1, x2 - x1) * 180 / Math.PI;
-            
-            const connection = document.createElement('div');
-            connection.className = 'network-connection';
-            connection.style.width = `${distance}px`;
-            connection.style.left = `${x1}px`;
-            connection.style.top = `${y1}px`;
-            connection.style.transform = `rotate(${angle}deg)`;
-            connection.style.animationDelay = `${Math.random() * 2}s`;
-            
-            scene.appendChild(connection);
-            
-            // Remove and recreate connection periodically
-            setTimeout(() => {
-                if (connection.parentNode) {
-                    connection.parentNode.removeChild(connection);
-                    createConnection(node1, node2, scene);
-                }
-            }, 3000 + Math.random() * 2000);
-        }
+        });
+
+        // Instructions for replacing video
+        console.log('VIDEO BACKGROUND INSTRUCTIONS:');
+        console.log('==============================');
+        console.log('To replace the background video:');
+        console.log('1. Find the <video> element in the HTML (around line 15)');
+        console.log('2. Replace the src attribute with your video URL');
+        console.log('3. Recommended: Use MP4 format, 10-30 second loop');
+        console.log('4. Good sources: Pexels, Videvo, or your own recordings');
+        console.log('5. Suggested topics: Tech teams discussing, coding, networking');
 
         // Mobile Menu Toggle
         const mobileMenuToggle = document.getElementById('mobileMenuToggle');
@@ -2200,14 +1793,12 @@
             });
         });
         
-        // Initialize collaboration scene
-        document.addEventListener('DOMContentLoaded', () => {
-            createCollaborationScene();
-            
-            // Recreate scene periodically for variety
-            setInterval(() => {
-                createCollaborationScene();
-            }, 30000); // Every 30 seconds
+        // Adjust video opacity based on scroll position
+        window.addEventListener('scroll', () => {
+            const scrollPercent = window.scrollY / (document.body.scrollHeight - window.innerHeight);
+            // Adjust opacity from 0.12 to 0.08 based on scroll
+            const opacity = 0.12 - (scrollPercent * 0.04);
+            video.style.opacity = Math.max(0.08, opacity);
         });
     </script>
 </body>
