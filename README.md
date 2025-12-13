@@ -1,3 +1,4 @@
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -55,135 +56,247 @@
             z-index: -1;
             overflow: hidden;
             background: linear-gradient(135deg, var(--secondary) 0%, var(--primary) 100%);
+            opacity: 0.95;
         }
 
-        .floating-element {
+        /* People Collaboration Scene */
+        .collaboration-scene {
             position: absolute;
-            opacity: 0.4;
-            transition: transform 20s linear, opacity 2s ease;
+            width: 100%;
+            height: 100%;
+            perspective: 1000px;
         }
 
-        .coding-element {
-            width: 120px;
-            height: 80px;
-            background: rgba(0, 119, 255, 0.1);
-            border-radius: 10px;
+        /* Team Groups */
+        .team-group {
+            position: absolute;
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
-            border: 1px solid rgba(0, 119, 255, 0.2);
-            box-shadow: 0 0 30px rgba(0, 119, 255, 0.1);
+            transition: transform 8s ease-in-out, opacity 3s ease;
+            opacity: 0.6;
         }
 
-        .coding-element::before {
-            content: '< />';
-            color: var(--accent);
-            font-size: 1.5rem;
-            font-weight: bold;
-            font-family: monospace;
+        .team-group:hover {
+            opacity: 0.8;
+            transform: scale(1.05);
         }
 
-        .coding-element::after {
-            content: 'Coding';
-            color: rgba(255, 255, 255, 0.7);
-            font-size: 0.8rem;
-            margin-top: 5px;
-        }
-
-        .network-element {
-            width: 120px;
-            height: 80px;
-            background: rgba(0, 255, 136, 0.1);
-            border-radius: 10px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            border: 1px solid rgba(0, 255, 136, 0.2);
-            box-shadow: 0 0 30px rgba(0, 255, 136, 0.1);
-        }
-
-        .network-element::before {
-            content: '●●●';
-            color: #00ff88;
-            font-size: 1.8rem;
-            letter-spacing: 8px;
-        }
-
-        .network-element::after {
-            content: 'Network';
-            color: rgba(255, 255, 255, 0.7);
-            font-size: 0.8rem;
-            margin-top: 5px;
-        }
-
-        .server-element {
-            width: 100px;
-            height: 100px;
-            background: rgba(255, 100, 0, 0.1);
+        /* Person Elements */
+        .person {
+            position: relative;
+            background: rgba(255, 255, 255, 0.1);
             border-radius: 50%;
             display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 5px;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 0 20px rgba(0, 119, 255, 0.1);
+            animation: personFloat 15s ease-in-out infinite;
+        }
+
+        .person::before {
+            content: '';
+            position: absolute;
+            width: 120%;
+            height: 120%;
+            border-radius: 50%;
+            background: rgba(0, 119, 255, 0.05);
+            z-index: -1;
+            animation: pulse 4s ease-in-out infinite;
+        }
+
+        .person i {
+            color: rgba(255, 255, 255, 0.7);
+            z-index: 1;
+        }
+
+        /* Discussion Bubbles */
+        .discussion-bubble {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 20px;
+            padding: 10px 15px;
+            font-size: 0.8rem;
+            color: var(--primary);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            opacity: 0;
+            transform: scale(0.8);
+            animation: bubbleTalk 6s ease-in-out infinite;
+            max-width: 200px;
+            text-align: center;
+            z-index: 2;
+        }
+
+        .discussion-bubble::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-width: 10px 10px 0;
+            border-style: solid;
+            border-color: rgba(255, 255, 255, 0.9) transparent transparent;
+        }
+
+        /* Whiteboard Elements */
+        .whiteboard {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            padding: 15px;
+            display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            border: 1px solid rgba(255, 100, 0, 0.2);
-            box-shadow: 0 0 30px rgba(255, 100, 0, 0.1);
+            opacity: 0.8;
+            transform: perspective(1000px) rotateX(5deg);
+            transition: transform 5s ease;
         }
 
-        .server-element::before {
-            content: '⎙';
-            color: #ff6400;
-            font-size: 2rem;
+        .whiteboard:hover {
+            transform: perspective(1000px) rotateX(0deg) scale(1.05);
+            opacity: 0.9;
         }
 
-        .server-element::after {
-            content: 'Server';
-            color: rgba(255, 255, 255, 0.7);
-            font-size: 0.8rem;
-            margin-top: 5px;
+        .whiteboard-content {
+            color: var(--primary);
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            line-height: 1.4;
         }
 
-        .data-flow {
+        /* Code Window Elements */
+        .code-window {
             position: absolute;
-            width: 3px;
-            height: 100px;
-            background: linear-gradient(to bottom, transparent, var(--accent), transparent);
-            opacity: 0.3;
-            animation: flow 3s linear infinite;
+            background: rgba(30, 30, 30, 0.9);
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+            padding: 15px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            color: #00ff88;
+            opacity: 0.7;
+            animation: codeTyping 20s linear infinite;
+            overflow: hidden;
         }
 
-        @keyframes float {
+        .code-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            padding-bottom: 5px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .code-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            margin-right: 5px;
+        }
+
+        .code-dot.red { background: #ff5f56; }
+        .code-dot.yellow { background: #ffbd2e; }
+        .code-dot.green { background: #27ca3f; }
+
+        /* Network Diagram Elements */
+        .network-node {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            background: rgba(0, 119, 255, 0.2);
+            border-radius: 50%;
+            border: 2px solid rgba(0, 119, 255, 0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: nodePulse 8s ease-in-out infinite;
+        }
+
+        .network-node i {
+            color: rgba(0, 119, 255, 0.7);
+        }
+
+        .network-connection {
+            position: absolute;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, rgba(0, 119, 255, 0.3), transparent);
+            transform-origin: left center;
+            animation: dataFlow 3s linear infinite;
+        }
+
+        /* Animations */
+        @keyframes personFloat {
             0%, 100% {
                 transform: translateY(0) rotate(0deg);
             }
-            50% {
-                transform: translateY(-20px) rotate(5deg);
+            33% {
+                transform: translateY(-10px) rotate(2deg);
+            }
+            66% {
+                transform: translateY(5px) rotate(-1deg);
             }
         }
 
-        @keyframes flow {
-            0% {
-                transform: translateY(-100px);
+        @keyframes bubbleTalk {
+            0%, 100% {
                 opacity: 0;
+                transform: scale(0.8) translateY(10px);
             }
-            50% {
-                opacity: 0.5;
+            15%, 85% {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+
+        @keyframes codeTyping {
+            0% {
+                background-position: 0 0;
             }
             100% {
-                transform: translateY(100vh);
+                background-position: 0 100px;
+            }
+        }
+
+        @keyframes nodePulse {
+            0%, 100% {
+                transform: scale(1);
+                box-shadow: 0 0 0 rgba(0, 119, 255, 0.2);
+            }
+            50% {
+                transform: scale(1.1);
+                box-shadow: 0 0 20px rgba(0, 119, 255, 0.4);
+            }
+        }
+
+        @keyframes dataFlow {
+            0% {
+                transform: scaleX(0);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: scaleX(1);
                 opacity: 0;
             }
         }
 
         @keyframes pulse {
             0%, 100% {
-                opacity: 0.3;
                 transform: scale(1);
+                opacity: 0.5;
             }
             50% {
-                opacity: 0.6;
-                transform: scale(1.05);
+                transform: scale(1.2);
+                opacity: 0.8;
             }
         }
 
@@ -437,7 +550,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, rgba(0, 0, 0, 0.8) 0%, rgba(26, 26, 26, 0.9) 100%);
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.85) 0%, rgba(26, 26, 26, 0.95) 100%);
             z-index: 1;
         }
 
@@ -802,7 +915,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, rgba(0, 0, 0, 0.8) 0%, rgba(26, 26, 26, 0.9) 100%);
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.85) 0%, rgba(26, 26, 26, 0.95) 100%);
             z-index: 1;
         }
 
@@ -1042,14 +1155,6 @@
             font-weight: 500;
         }
 
-        .logo-year {
-            font-size: 0.6rem;
-            color: var(--text-light);
-            letter-spacing: 1px;
-            margin-top: 3px;
-            font-weight: 400;
-        }
-
         /* Responsive */
         @media (max-width: 992px) {
             .hero-container,
@@ -1075,9 +1180,9 @@
                 grid-template-columns: 1fr 1fr;
             }
 
-            .floating-element {
-                width: 80px !important;
-                height: 60px !important;
+            .person {
+                width: 35px !important;
+                height: 35px !important;
             }
         }
 
@@ -1159,10 +1264,17 @@
                 font-size: 1.8rem;
             }
 
-            .floating-element {
-                width: 60px !important;
-                height: 45px !important;
-                opacity: 0.2;
+            .person {
+                width: 30px !important;
+                height: 30px !important;
+            }
+
+            .discussion-bubble {
+                display: none;
+            }
+
+            .whiteboard, .code-window {
+                transform: scale(0.8);
             }
         }
 
@@ -1192,22 +1304,27 @@
                 font-size: 1.5rem;
             }
 
-            .floating-element {
-                width: 50px !important;
-                height: 35px !important;
+            .person {
+                width: 25px !important;
+                height: 25px !important;
+            }
+
+            .whiteboard, .code-window {
+                display: none;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Motion Background -->
-    <div class="motion-background" id="motionBackground"></div>
+    <!-- Motion Background with People Discussing -->
+    <div class="motion-background" id="motionBackground">
+        <div class="collaboration-scene" id="collaborationScene"></div>
+    </div>
 
     <!-- Header -->
     <header class="header">
         <div class="container header-container">
             <a href="#home" class="logo">
-                <!-- Logo Placeholder - Replace with actual logo image -->
                 <div class="logo-placeholder">
                     <img src="mateor-labs-high-resolution-logo.png" alt="Mateor Labs Logo" style="height: 60px; width: auto;">
                 </div>
@@ -1677,7 +1794,6 @@
             <div class="footer-container">
                 <div class="footer-about">
                     <a href="#home" class="logo">
-                        <!-- Logo Placeholder - Replace with actual logo image -->
                         <div class="logo-placeholder">
                            <img src="mateor-labs-high-resolution-logo.png" alt="Mateor Labs Logo" style="height: 60px; width: auto;">
                         </div>
@@ -1715,57 +1831,265 @@
     </footer>
 
     <script>
-        // Motion Background Creation
-        function createMotionBackground() {
-            const background = document.getElementById('motionBackground');
-            const elementTypes = ['coding', 'network', 'server'];
+        // Create Collaboration Scene with People Discussing
+        function createCollaborationScene() {
+            const scene = document.getElementById('collaborationScene');
             
-            // Create floating elements
-            for (let i = 0; i < 15; i++) {
-                const element = document.createElement('div');
-                const type = elementTypes[Math.floor(Math.random() * elementTypes.length)];
-                
-                element.className = `floating-element ${type}-element`;
-                element.style.left = `${Math.random() * 100}%`;
-                element.style.top = `${Math.random() * 100}%`;
-                element.style.opacity = '0.3';
-                element.style.animation = `float ${15 + Math.random() * 15}s ease-in-out infinite`;
-                element.style.animationDelay = `${Math.random() * 5}s`;
-                
-                background.appendChild(element);
-                
-                // Random movement over time
-                setInterval(() => {
-                    const x = Math.random() * 90;
-                    const y = Math.random() * 90;
-                    element.style.transform = `translate(${x}px, ${y}px) rotate(${Math.random() * 360}deg)`;
-                }, 15000 + Math.random() * 10000);
+            // Clear existing content
+            scene.innerHTML = '';
+            
+            // Create 5-7 team groups (clusters of people discussing)
+            const teamCount = 5 + Math.floor(Math.random() * 3);
+            
+            for (let i = 0; i < teamCount; i++) {
+                createTeamGroup(scene, i);
             }
             
-            // Create data flow lines
-            for (let i = 0; i < 8; i++) {
-                const flow = document.createElement('div');
-                flow.className = 'data-flow';
-                flow.style.left = `${Math.random() * 100}%`;
-                flow.style.animationDelay = `${Math.random() * 3}s`;
-                background.appendChild(flow);
+            // Create some individual network/code elements
+            createTechElements(scene);
+        }
+        
+        function createTeamGroup(scene, index) {
+            const group = document.createElement('div');
+            group.className = 'team-group';
+            
+            // Position the group
+            const left = 10 + (index * 15) + (Math.random() * 10);
+            const top = 10 + (Math.random() * 70);
+            group.style.left = `${left}%`;
+            group.style.top = `${top}%`;
+            group.style.transform = `scale(${0.8 + Math.random() * 0.4})`;
+            
+            // Create 2-4 people in the group
+            const personCount = 2 + Math.floor(Math.random() * 3);
+            const positions = [
+                {x: 0, y: 0},
+                {x: 40, y: -20},
+                {x: -40, y: 20},
+                {x: 20, y: 40}
+            ];
+            
+            for (let i = 0; i < personCount; i++) {
+                const person = createPerson(positions[i] || {x: Math.random() * 60 - 30, y: Math.random() * 60 - 30});
+                group.appendChild(person);
+                
+                // Add discussion bubble for some people
+                if (Math.random() > 0.5 && i < 2) {
+                    const bubble = createDiscussionBubble(i, personCount);
+                    bubble.style.left = `${positions[i]?.x || 0}px`;
+                    bubble.style.top = `${(positions[i]?.y || 0) - 50}px`;
+                    bubble.style.animationDelay = `${Math.random() * 2}s`;
+                    group.appendChild(bubble);
+                }
             }
             
-            // Create additional network connections
+            // Add whiteboard or code window for some groups
+            if (Math.random() > 0.6) {
+                if (Math.random() > 0.5) {
+                    const whiteboard = createWhiteboard();
+                    whiteboard.style.left = '60px';
+                    whiteboard.style.top = '-30px';
+                    group.appendChild(whiteboard);
+                } else {
+                    const codeWindow = createCodeWindow();
+                    codeWindow.style.left = '80px';
+                    codeWindow.style.top = '20px';
+                    group.appendChild(codeWindow);
+                }
+            }
+            
+            scene.appendChild(group);
+            
+            // Add slow movement to the group
             setInterval(() => {
-                const flow = document.createElement('div');
-                flow.className = 'data-flow';
-                flow.style.left = `${Math.random() * 100}%`;
-                flow.style.opacity = '0.2';
-                background.appendChild(flow);
+                const x = left + (Math.random() * 10 - 5);
+                const y = top + (Math.random() * 10 - 5);
+                group.style.transform = `translate(${x - left}px, ${y - top}px) scale(${0.8 + Math.random() * 0.4})`;
+            }, 8000 + Math.random() * 7000);
+        }
+        
+        function createPerson(position) {
+            const person = document.createElement('div');
+            person.className = 'person';
+            
+            // Random size for variety
+            const size = 40 + Math.random() * 20;
+            person.style.width = `${size}px`;
+            person.style.height = `${size}px`;
+            person.style.left = `${position.x}px`;
+            person.style.top = `${position.y}px`;
+            
+            // Random icon representing different roles
+            const icons = ['fa-user', 'fa-user-tie', 'fa-user-ninja', 'fa-user-graduate', 'fa-user-astronaut'];
+            const icon = icons[Math.floor(Math.random() * icons.length)];
+            
+            const iconEl = document.createElement('i');
+            iconEl.className = `fas ${icon}`;
+            iconEl.style.fontSize = `${size * 0.5}px`;
+            person.appendChild(iconEl);
+            
+            // Random animation delay
+            person.style.animationDelay = `${Math.random() * 5}s`;
+            
+            return person;
+        }
+        
+        function createDiscussionBubble(index, groupSize) {
+            const bubble = document.createElement('div');
+            bubble.className = 'discussion-bubble';
+            
+            // Different content based on group size and position
+            const discussions = [
+                "Let's deploy this feature",
+                "Network needs optimization",
+                "Security review required",
+                "Client feedback integrated",
+                "Testing phase complete",
+                "Ready for production",
+                "Need more resources",
+                "API integration done"
+            ];
+            
+            const content = discussions[Math.floor(Math.random() * discussions.length)];
+            bubble.textContent = content;
+            
+            // Style based on position
+            if (index === 0) {
+                bubble.style.transformOrigin = 'bottom center';
+            } else {
+                bubble.style.transformOrigin = 'top center';
+            }
+            
+            return bubble;
+        }
+        
+        function createWhiteboard() {
+            const whiteboard = document.createElement('div');
+            whiteboard.className = 'whiteboard';
+            whiteboard.style.width = '120px';
+            whiteboard.style.height = '80px';
+            
+            const content = document.createElement('div');
+            content.className = 'whiteboard-content';
+            
+            // Different whiteboard content
+            const contents = [
+                "Architecture\nDiagram →",
+                "API\nEndpoints",
+                "User\nFlow",
+                "DB Schema",
+                "Network\nLayout"
+            ];
+            
+            content.textContent = contents[Math.floor(Math.random() * contents.length)];
+            whiteboard.appendChild(content);
+            
+            return whiteboard;
+        }
+        
+        function createCodeWindow() {
+            const codeWindow = document.createElement('div');
+            codeWindow.className = 'code-window';
+            codeWindow.style.width = '150px';
+            codeWindow.style.height = '100px';
+            
+            // Header with dots
+            const header = document.createElement('div');
+            header.className = 'code-header';
+            
+            const redDot = document.createElement('div');
+            redDot.className = 'code-dot red';
+            header.appendChild(redDot);
+            
+            const yellowDot = document.createElement('div');
+            yellowDot.className = 'code-dot yellow';
+            header.appendChild(yellowDot);
+            
+            const greenDot = document.createElement('div');
+            greenDot.className = 'code-dot green';
+            header.appendChild(greenDot);
+            
+            codeWindow.appendChild(header);
+            
+            // Code content
+            const codeContent = document.createElement('div');
+            codeContent.style.fontSize = '0.7rem';
+            codeContent.style.lineHeight = '1.3';
+            
+            const codeSnippets = [
+                "function deploy() {\n  // Code here\n  return success;\n}",
+                "const network = {\n  nodes: [...],\n  connections: {}\n};",
+                "if (securityCheck()) {\n  proceed();\n}",
+                "api.post('/deploy',\n  config => success)"
+            ];
+            
+            codeContent.textContent = codeSnippets[Math.floor(Math.random() * codeSnippets.length)];
+            codeWindow.appendChild(codeContent);
+            
+            return codeWindow;
+        }
+        
+        function createTechElements(scene) {
+            // Add some network nodes
+            for (let i = 0; i < 4; i++) {
+                const node = document.createElement('div');
+                node.className = 'network-node';
+                node.style.left = `${10 + Math.random() * 80}%`;
+                node.style.top = `${10 + Math.random() * 80}%`;
+                node.style.animationDelay = `${Math.random() * 5}s`;
                 
-                // Remove after animation completes
-                setTimeout(() => {
-                    if (flow.parentNode) {
-                        flow.parentNode.removeChild(flow);
+                const icon = document.createElement('i');
+                icon.className = 'fas fa-server';
+                node.appendChild(icon);
+                
+                scene.appendChild(node);
+            }
+            
+            // Add some connections between nodes
+            setTimeout(() => {
+                const nodes = document.querySelectorAll('.network-node');
+                if (nodes.length >= 2) {
+                    for (let i = 0; i < 3; i++) {
+                        const node1 = nodes[Math.floor(Math.random() * nodes.length)];
+                        const node2 = nodes[Math.floor(Math.random() * nodes.length)];
+                        
+                        if (node1 !== node2) {
+                            createConnection(node1, node2, scene);
+                        }
                     }
-                }, 3000);
-            }, 2000);
+                }
+            }, 1000);
+        }
+        
+        function createConnection(node1, node2, scene) {
+            const rect1 = node1.getBoundingClientRect();
+            const rect2 = node2.getBoundingClientRect();
+            
+            const x1 = rect1.left + rect1.width / 2;
+            const y1 = rect1.top + rect1.height / 2;
+            const x2 = rect2.left + rect2.width / 2;
+            const y2 = rect2.top + rect2.height / 2;
+            
+            const distance = Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
+            const angle = Math.atan2(y2 - y1, x2 - x1) * 180 / Math.PI;
+            
+            const connection = document.createElement('div');
+            connection.className = 'network-connection';
+            connection.style.width = `${distance}px`;
+            connection.style.left = `${x1}px`;
+            connection.style.top = `${y1}px`;
+            connection.style.transform = `rotate(${angle}deg)`;
+            connection.style.animationDelay = `${Math.random() * 2}s`;
+            
+            scene.appendChild(connection);
+            
+            // Remove and recreate connection periodically
+            setTimeout(() => {
+                if (connection.parentNode) {
+                    connection.parentNode.removeChild(connection);
+                    createConnection(node1, node2, scene);
+                }
+            }, 3000 + Math.random() * 2000);
         }
 
         // Mobile Menu Toggle
@@ -1876,8 +2200,15 @@
             });
         });
         
-        // Initialize motion background
-        document.addEventListener('DOMContentLoaded', createMotionBackground);
+        // Initialize collaboration scene
+        document.addEventListener('DOMContentLoaded', () => {
+            createCollaborationScene();
+            
+            // Recreate scene periodically for variety
+            setInterval(() => {
+                createCollaborationScene();
+            }, 30000); // Every 30 seconds
+        });
     </script>
 </body>
 </html>
