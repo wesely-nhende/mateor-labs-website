@@ -1,4 +1,4 @@
-
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -43,6 +43,161 @@
             color: var(--text);
             background-color: var(--background);
             overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Motion Background Container */
+        .motion-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+            background: linear-gradient(135deg, var(--secondary) 0%, var(--primary) 100%);
+        }
+
+        .floating-element {
+            position: absolute;
+            opacity: 0.4;
+            transition: transform 20s linear, opacity 2s ease;
+        }
+
+        .coding-element {
+            width: 120px;
+            height: 80px;
+            background: rgba(0, 119, 255, 0.1);
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid rgba(0, 119, 255, 0.2);
+            box-shadow: 0 0 30px rgba(0, 119, 255, 0.1);
+        }
+
+        .coding-element::before {
+            content: '< />';
+            color: var(--accent);
+            font-size: 1.5rem;
+            font-weight: bold;
+            font-family: monospace;
+        }
+
+        .coding-element::after {
+            content: 'Coding';
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.8rem;
+            margin-top: 5px;
+        }
+
+        .network-element {
+            width: 120px;
+            height: 80px;
+            background: rgba(0, 255, 136, 0.1);
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid rgba(0, 255, 136, 0.2);
+            box-shadow: 0 0 30px rgba(0, 255, 136, 0.1);
+        }
+
+        .network-element::before {
+            content: '●●●';
+            color: #00ff88;
+            font-size: 1.8rem;
+            letter-spacing: 8px;
+        }
+
+        .network-element::after {
+            content: 'Network';
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.8rem;
+            margin-top: 5px;
+        }
+
+        .server-element {
+            width: 100px;
+            height: 100px;
+            background: rgba(255, 100, 0, 0.1);
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid rgba(255, 100, 0, 0.2);
+            box-shadow: 0 0 30px rgba(255, 100, 0, 0.1);
+        }
+
+        .server-element::before {
+            content: '⎙';
+            color: #ff6400;
+            font-size: 2rem;
+        }
+
+        .server-element::after {
+            content: 'Server';
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.8rem;
+            margin-top: 5px;
+        }
+
+        .data-flow {
+            position: absolute;
+            width: 3px;
+            height: 100px;
+            background: linear-gradient(to bottom, transparent, var(--accent), transparent);
+            opacity: 0.3;
+            animation: flow 3s linear infinite;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0) rotate(0deg);
+            }
+            50% {
+                transform: translateY(-20px) rotate(5deg);
+            }
+        }
+
+        @keyframes flow {
+            0% {
+                transform: translateY(-100px);
+                opacity: 0;
+            }
+            50% {
+                opacity: 0.5;
+            }
+            100% {
+                transform: translateY(100vh);
+                opacity: 0;
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                opacity: 0.3;
+                transform: scale(1);
+            }
+            50% {
+                opacity: 0.6;
+                transform: scale(1.05);
+            }
+        }
+
+        /* Add a semi-transparent overlay to ensure content readability */
+        .content-overlay {
+            position: relative;
+            z-index: 1;
+            background: rgba(255, 255, 255, 0.97);
+        }
+
+        .hero .content-overlay,
+        .contact .content-overlay {
+            background: transparent;
         }
 
         h1, h2, h3, h4, h5 {
@@ -77,10 +232,13 @@
             max-width: var(--container-width);
             margin: 0 auto;
             padding: 0 20px;
+            position: relative;
+            z-index: 2;
         }
 
         .section {
             padding: 100px 0;
+            position: relative;
         }
 
         .section-header {
@@ -268,7 +426,6 @@
         .hero {
             padding-top: 160px;
             padding-bottom: 100px;
-            background: linear-gradient(135deg, var(--secondary) 0%, var(--primary) 100%);
             color: white;
             position: relative;
             overflow: hidden;
@@ -281,14 +438,13 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: url('https://images.unsplash.com/photo-1518709268805-4e9042af2176?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
-            opacity: 0.2;
-            filter: grayscale(100%);
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.8) 0%, rgba(26, 26, 26, 0.9) 100%);
+            z-index: 1;
         }
 
         .hero-container {
             position: relative;
-            z-index: 1;
+            z-index: 2;
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 60px;
@@ -637,6 +793,23 @@
         .contact {
             background-color: var(--secondary);
             color: white;
+            position: relative;
+        }
+
+        .contact::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.8) 0%, rgba(26, 26, 26, 0.9) 100%);
+            z-index: 1;
+        }
+
+        .contact .container {
+            position: relative;
+            z-index: 2;
         }
 
         .contact .section-title,
@@ -736,6 +909,8 @@
             background-color: var(--primary);
             color: white;
             padding: 70px 0 30px;
+            position: relative;
+            z-index: 2;
         }
 
         .footer-container {
@@ -900,6 +1075,11 @@
             .footer-container {
                 grid-template-columns: 1fr 1fr;
             }
+
+            .floating-element {
+                width: 80px !important;
+                height: 60px !important;
+            }
         }
 
         @media (max-width: 768px) {
@@ -979,6 +1159,12 @@
             .logo-placeholder .logo-main {
                 font-size: 1.8rem;
             }
+
+            .floating-element {
+                width: 60px !important;
+                height: 45px !important;
+                opacity: 0.2;
+            }
         }
 
         @media (max-width: 576px) {
@@ -1006,10 +1192,18 @@
             .logo-placeholder .logo-main {
                 font-size: 1.5rem;
             }
+
+            .floating-element {
+                width: 50px !important;
+                height: 35px !important;
+            }
         }
     </style>
 </head>
 <body>
+    <!-- Motion Background -->
+    <div class="motion-background" id="motionBackground"></div>
+
     <!-- Header -->
     <header class="header">
         <div class="container header-container">
@@ -1522,6 +1716,59 @@
     </footer>
 
     <script>
+        // Motion Background Creation
+        function createMotionBackground() {
+            const background = document.getElementById('motionBackground');
+            const elementTypes = ['coding', 'network', 'server'];
+            
+            // Create floating elements
+            for (let i = 0; i < 15; i++) {
+                const element = document.createElement('div');
+                const type = elementTypes[Math.floor(Math.random() * elementTypes.length)];
+                
+                element.className = `floating-element ${type}-element`;
+                element.style.left = `${Math.random() * 100}%`;
+                element.style.top = `${Math.random() * 100}%`;
+                element.style.opacity = '0.3';
+                element.style.animation = `float ${15 + Math.random() * 15}s ease-in-out infinite`;
+                element.style.animationDelay = `${Math.random() * 5}s`;
+                
+                background.appendChild(element);
+                
+                // Random movement over time
+                setInterval(() => {
+                    const x = Math.random() * 90;
+                    const y = Math.random() * 90;
+                    element.style.transform = `translate(${x}px, ${y}px) rotate(${Math.random() * 360}deg)`;
+                }, 15000 + Math.random() * 10000);
+            }
+            
+            // Create data flow lines
+            for (let i = 0; i < 8; i++) {
+                const flow = document.createElement('div');
+                flow.className = 'data-flow';
+                flow.style.left = `${Math.random() * 100}%`;
+                flow.style.animationDelay = `${Math.random() * 3}s`;
+                background.appendChild(flow);
+            }
+            
+            // Create additional network connections
+            setInterval(() => {
+                const flow = document.createElement('div');
+                flow.className = 'data-flow';
+                flow.style.left = `${Math.random() * 100}%`;
+                flow.style.opacity = '0.2';
+                background.appendChild(flow);
+                
+                // Remove after animation completes
+                setTimeout(() => {
+                    if (flow.parentNode) {
+                        flow.parentNode.removeChild(flow);
+                    }
+                }, 3000);
+            }, 2000);
+        }
+
         // Mobile Menu Toggle
         const mobileMenuToggle = document.getElementById('mobileMenuToggle');
         const nav = document.getElementById('nav');
@@ -1629,6 +1876,9 @@
                 }
             });
         });
+        
+        // Initialize motion background
+        document.addEventListener('DOMContentLoaded', createMotionBackground);
     </script>
 </body>
 </html>
