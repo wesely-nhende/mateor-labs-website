@@ -1016,7 +1016,7 @@
             <a href="#home" class="logo">
                 <!-- Logo Placeholder - Replace with actual logo image -->
                 <div class="logo-placeholder">
-                    <img src="mateor-labs-high-resolution-logo.png" alt="Mateor Labs Logo" style="height: 60px; width: auto;">
+                    <img src="mateor-labs-high-resolution-logo1.png" alt="Mateor Labs Logo" style="height: 60px; width: auto;">
                 </div>
             </a>
             
@@ -1486,10 +1486,7 @@
                     <a href="#home" class="logo">
                         <!-- Logo Placeholder - Replace with actual logo image -->
                         <div class="logo-placeholder">
-                            <div class="logo-main">MATEOR LABS</div>
-                            <div class="logo-subtitle">SAVVYFORGED</div>
-                            <div class="logo-tagline">TECHNOLOGICAL EMINENCE</div>
-                            <div class="logo-year">SINCE 2021</div>
+                           <img src="mateor-labs-high-resolution-logo1.png" alt="Mateor Labs Logo" style="height: 60px; width: auto;">
                         </div>
                     </a>
                     <p>Leading provider of innovative technology solutions, software deployment, network configuration, and ICT equipment since 2021.</p>
