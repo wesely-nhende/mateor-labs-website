@@ -1,1805 +1,1059 @@
-
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mateor Labs (Pvt) Ltd | Technology Solutions for the Digital Age</title>
-    <meta name="description" content="Leading technology solutions provider offering innovative software deployment, network configuration, and ICT equipment solutions. Digital transformation specialists since 2021.">
+    <title>Wetine Enterprises | Quality Hardware & Electronics</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        /* CSS Variables - Professional Tech Theme */
         :root {
-            --primary: #000000;
-            --secondary: #1a1a1a;
-            --accent: #0077ff;
-            --accent-light: #3399ff;
-            --text: #333333;
-            --text-light: #666666;
-            --background: #ffffff;
-            --background-alt: #f8f9fa;
-            --card-bg: #ffffff;
-            --border: #e0e0e0;
-            --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-            --shadow-hover: 0 8px 24px rgba(0, 0, 0, 0.12);
-            --transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            --border-radius: 8px;
-            --container-width: 1200px;
+            --primary-green: #2e7d32;    /* Main brand green */
+            --dark-green: #1b5e20;       /* Darker shade for hover states */
+            --light-green: #e8f5e9;      /* Light tint for backgrounds */
+            --accent-amber: #ff8f00;     /* Accent color for highlights */
+            --neutral-dark: #2d3748;
+            --neutral-gray: #718096;
+            --neutral-light: #f7fafc;
+            --white: #ffffff;
         }
-
-        /* Reset & Base */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            font-family: 'Inter', sans-serif;
             line-height: 1.6;
-            color: var(--text);
-            background-color: var(--background);
-            overflow-x: hidden;
-            position: relative;
+            color: var(--neutral-dark);
+            background-color: var(--white);
         }
-
-        /* Video Background Container */
-        .video-background {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            overflow: hidden;
-        }
-
-        .background-video {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            min-width: 100%;
-            min-height: 100%;
-            width: auto;
-            height: auto;
-            transform: translate(-50%, -50%);
-            object-fit: cover;
-            opacity: 0.12; /* Reduced transparency for text visibility */
-            filter: grayscale(60%) brightness(0.8) contrast(1.2);
-        }
-
-        /* Gradient overlay for better text contrast */
-        .video-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(
-                135deg,
-                rgba(255, 255, 255, 0.85) 0%,
-                rgba(248, 249, 250, 0.9) 50%,
-                rgba(255, 255, 255, 0.95) 100%
-            );
-            z-index: 1;
-        }
-
-        /* Sections with white backgrounds for better readability */
-        .section {
-            background-color: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(5px);
-        }
-
-        .hero, .contact {
-            background-color: transparent;
-        }
-
-        .hero::before, .contact::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, rgba(0, 0, 0, 0.75) 0%, rgba(26, 26, 26, 0.85) 100%);
-            z-index: -1;
-        }
-
-        .hero .container, .contact .container {
-            position: relative;
-            z-index: 2;
-        }
-
-        /* Cards with slight transparency to show background */
-        .partner-card, .portfolio-item, .service-image, .about-image, .hero-image {
-            background-color: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-        }
-
-        h1, h2, h3, h4, h5 {
-            font-weight: 700;
-            line-height: 1.2;
-            margin-bottom: 1rem;
-            color: var(--primary);
-        }
-
-        p {
-            margin-bottom: 1.2rem;
-            color: var(--text-light);
-        }
-
-        a {
-            text-decoration: none;
-            color: inherit;
-            transition: var(--transition);
-        }
-
-        ul {
-            list-style: none;
-        }
-
-        img {
-            max-width: 100%;
-            height: auto;
-        }
-
         .container {
             width: 100%;
-            max-width: var(--container-width);
+            max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
-            position: relative;
-            z-index: 2;
         }
-
-        .section {
-            padding: 100px 0;
-            position: relative;
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 60px;
-        }
-
-        .section-title {
-            font-size: 2.5rem;
-            position: relative;
-            display: inline-block;
-            margin-bottom: 15px;
-        }
-
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 60px;
-            height: 3px;
-            background-color: var(--accent);
-        }
-
-        .section-subtitle {
-            font-size: 1.1rem;
-            color: var(--text-light);
-            max-width: 700px;
-            margin: 0 auto;
-        }
-
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            padding: 14px 32px;
-            border-radius: var(--border-radius);
-            font-weight: 600;
-            font-size: 0.95rem;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            transition: var(--transition);
-            border: none;
-            cursor: pointer;
-            gap: 8px;
-        }
-
-        .btn-primary {
-            background-color: var(--accent);
-            color: white;
-        }
-
-        .btn-primary:hover {
-            background-color: var(--accent-light);
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-hover);
-        }
-
-        .btn-outline {
-            background-color: transparent;
-            color: var(--accent);
-            border: 2px solid var(--accent);
-        }
-
-        .btn-outline:hover {
-            background-color: var(--accent);
-            color: white;
-            transform: translateY(-2px);
-        }
-
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        .fade-in-up {
-            animation: fadeInUp 0.8s ease forwards;
-        }
-
-        .fade-in {
-            animation: fadeIn 0.8s ease forwards;
-        }
-
-        /* Header */
-        .header {
-            position: fixed;
+        /* Header & Navigation */
+        .main-header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            position: sticky;
             top: 0;
-            left: 0;
-            width: 100%;
-            background-color: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
             z-index: 1000;
-            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
-            padding: 15px 0;
-            transition: var(--transition);
         }
-
-        .header.scrolled {
-            padding: 10px 0;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-        }
-
         .header-container {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            padding: 20px 0;
         }
-
         .logo {
-            display: flex;
-            align-items: center;
+            font-size: 24px;
             font-weight: 700;
-            font-size: 1.8rem;
-            color: var(--primary);
-            height: 60px;
-        }
-
-        .logo img {
-            height: 100%;
-            width: auto;
-        }
-
-        .nav {
-            display: flex;
-            align-items: center;
-        }
-
-        .nav-list {
-            display: flex;
-        }
-
-        .nav-item {
-            margin-left: 35px;
-        }
-
-        .nav-link {
-            font-weight: 600;
-            font-size: 0.95rem;
-            position: relative;
-            padding: 5px 0;
-        }
-
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background-color: var(--accent);
-            transition: var(--transition);
-        }
-
-        .nav-link:hover {
-            color: var(--accent);
-        }
-
-        .nav-link:hover::after {
-            width: 100%;
-        }
-
-        .mobile-menu-toggle {
-            display: none;
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            color: var(--primary);
-            cursor: pointer;
-        }
-
-        /* Hero */
-        .hero {
-            padding-top: 160px;
-            padding-bottom: 100px;
-            color: white;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero-container {
-            position: relative;
-            z-index: 2;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: center;
-        }
-
-        .hero-content h1 {
-            font-size: 3.2rem;
-            color: white;
-            margin-bottom: 1.5rem;
-            line-height: 1.1;
-        }
-
-        .hero-content p {
-            font-size: 1.2rem;
-            color: rgba(255, 255, 255, 0.85);
-            margin-bottom: 2.5rem;
-            max-width: 500px;
-        }
-
-        .hero-stats {
-            display: flex;
-            gap: 40px;
-            margin-top: 3rem;
-        }
-
-        .stat-item {
-            text-align: center;
-        }
-
-        .stat-number {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: white;
-            margin-bottom: 5px;
-        }
-
-        .stat-label {
-            font-size: 0.9rem;
-            color: rgba(255, 255, 255, 0.7);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .hero-visual {
-            position: relative;
-        }
-
-        .hero-image {
-            border-radius: var(--border-radius);
-            overflow: hidden;
-            box-shadow: var(--shadow-hover);
-            transform: perspective(1000px) rotateY(-10deg);
-            transition: var(--transition);
-        }
-
-        .hero-image:hover {
-            transform: perspective(1000px) rotateY(0deg);
-        }
-
-        .hero-image img {
-            width: 100%;
-            height: 400px;
-            object-fit: cover;
-            filter: grayscale(30%);
-            transition: var(--transition);
-        }
-
-        .hero-image:hover img {
-            filter: grayscale(0%);
-        }
-
-        /* Services */
-        .services {
-            background-color: rgba(248, 249, 250, 0.85);
-        }
-
-        .services-tabs {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 15px;
-            margin-bottom: 50px;
-        }
-
-        .tab-btn {
-            background-color: white;
-            border: 2px solid var(--border);
-            padding: 14px 28px;
-            border-radius: 50px;
-            font-weight: 600;
-            font-size: 0.95rem;
-            cursor: pointer;
-            transition: var(--transition);
+            color: var(--primary-green);
+            text-decoration: none;
             display: flex;
             align-items: center;
             gap: 10px;
         }
-
-        .tab-btn.active {
-            background-color: var(--accent);
-            color: white;
-            border-color: var(--accent);
+        .logo span {
+            color: var(--neutral-dark);
         }
-
-        .tab-btn:hover:not(.active) {
-            border-color: var(--accent);
-            color: var(--accent);
-        }
-
-        .services-content {
-            display: none;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: center;
-        }
-
-        .services-content.active {
-            display: grid;
-            animation: fadeInUp 0.6s ease forwards;
-        }
-
-        .service-image {
-            border-radius: var(--border-radius);
-            overflow: hidden;
-            box-shadow: var(--shadow);
-        }
-
-        .service-image img {
-            width: 100%;
-            height: 350px;
-            object-fit: cover;
-            transition: var(--transition);
-            filter: grayscale(100%);
-        }
-
-        .service-image:hover img {
-            filter: grayscale(0%);
-            transform: scale(1.03);
-        }
-
-        .service-details h3 {
-            font-size: 2rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .service-features {
-            margin-top: 1.5rem;
-        }
-
-        .service-feature {
+        .main-nav {
             display: flex;
-            align-items: flex-start;
-            margin-bottom: 15px;
-        }
-
-        .service-feature i {
-            color: var(--accent);
-            margin-right: 12px;
-            margin-top: 3px;
-            font-size: 1.1rem;
-        }
-
-        /* Partners */
-        .partners-container {
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-
-        .partners-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            align-items: center;
             gap: 30px;
         }
-
-        .partner-card {
-            background-color: rgba(255, 255, 255, 0.95);
-            border-radius: var(--border-radius);
-            padding: 40px 30px;
-            text-align: center;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-            border: 1px solid var(--border);
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
         }
-
-        .partner-card:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--shadow-hover);
-            border-color: var(--accent);
+        .nav-links a {
+            text-decoration: none;
+            color: var(--neutral-dark);
+            font-weight: 500;
+            transition: color 0.3s;
         }
-
-        .partner-logo {
-            height: 80px;
+        .nav-links a:hover {
+            color: var(--primary-green);
+        }
+        .cart-icon {
+            position: relative;
+            cursor: pointer;
+        }
+        .cart-icon i {
+            font-size: 22px;
+            color: var(--neutral-dark);
+        }
+        .cart-count {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background-color: var(--accent-amber);
+            color: white;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 25px;
-            filter: grayscale(100%);
-            opacity: 0.8;
-            transition: var(--transition);
+            font-size: 12px;
+            font-weight: bold;
         }
-
-        .partner-card:hover .partner-logo {
-            filter: grayscale(0%);
-            opacity: 1;
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: var(--neutral-dark);
+            cursor: pointer;
         }
-
-        .partner-name {
-            font-size: 1.3rem;
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(46, 125, 50, 0.9), rgba(27, 94, 32, 0.9)), url('https://images.unsplash.com/photo-1581094715295-bf7d63bd5c44?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80');
+            background-size: cover;
+            background-position: center;
+            color: var(--white);
+            text-align: center;
+            padding: 120px 0;
+        }
+        .hero h1 {
+            font-size: 3.5rem;
             font-weight: 700;
-            margin-bottom: 10px;
+            margin-bottom: 20px;
+            line-height: 1.2;
         }
-
-        .partner-description {
-            font-size: 0.95rem;
-            color: var(--text-light);
+        .hero p {
+            font-size: 1.25rem;
+            max-width: 700px;
+            margin: 0 auto 40px;
+            opacity: 0.9;
         }
-
-        /* Portfolio */
-        .portfolio {
-            background-color: rgba(248, 249, 250, 0.85);
+        .cta-button {
+            display: inline-block;
+            background-color: var(--white);
+            color: var(--primary-green);
+            padding: 15px 35px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
         }
-
-        .portfolio-grid {
+        .cta-button:hover {
+            background-color: var(--light-green);
+            transform: translateY(-3px);
+        }
+        /* Services/Products Section */
+        .services {
+            padding: 100px 0;
+            background-color: var(--neutral-light);
+        }
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        .section-title h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--neutral-dark);
+            margin-bottom: 15px;
+        }
+        .section-title p {
+            font-size: 1.125rem;
+            color: var(--neutral-gray);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 30px;
         }
-
-        .portfolio-item {
-            background-color: rgba(255, 255, 255, 0.95);
-            border-radius: var(--border-radius);
-            overflow: hidden;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-            position: relative;
+        .service-card {
+            background-color: var(--white);
+            border-radius: 10px;
+            padding: 40px 30px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
-
-        .portfolio-item:hover {
+        .service-card:hover {
             transform: translateY(-10px);
-            box-shadow: var(--shadow-hover);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
         }
-
-        .portfolio-image {
-            height: 250px;
+        .service-icon {
+            width: 70px;
+            height: 70px;
+            background-color: var(--light-green);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+        }
+        .service-icon i {
+            font-size: 30px;
+            color: var(--primary-green);
+        }
+        .service-card h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: var(--neutral-dark);
+        }
+        .service-card p {
+            color: var(--neutral-gray);
+            margin-bottom: 20px;
+        }
+        /* Challenges Section */
+        .challenges {
+            padding: 100px 0;
+            background-color: var(--white);
+        }
+        .challenges-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+        }
+        .challenge-card {
+            text-align: center;
+        }
+        .challenge-stat {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--primary-green);
+            margin-bottom: 15px;
+            line-height: 1;
+        }
+        .challenge-card h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: var(--neutral-dark);
+        }
+        /* Testimonials */
+        .testimonials {
+            padding: 100px 0;
+            background-color: var(--neutral-light);
+        }
+        .testimonial-slider {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .testimonial-card {
+            background-color: var(--white);
+            border-radius: 10px;
+            padding: 40px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        .testimonial-text {
+            font-size: 1.25rem;
+            font-style: italic;
+            color: var(--neutral-dark);
+            margin-bottom: 30px;
+            line-height: 1.7;
+        }
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .author-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-color: var(--light-green);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-green);
+            font-size: 24px;
+            font-weight: 700;
+        }
+        .author-info h4 {
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+        .author-info p {
+            color: var(--neutral-gray);
+            font-size: 0.9rem;
+        }
+        /* Product Grid & Cart */
+        .product-section {
+            padding: 100px 0;
+            display: none;
+        }
+        .product-filters {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 40px;
+        }
+        .filter-btn {
+            background-color: var(--white);
+            border: 2px solid var(--primary-green);
+            color: var(--primary-green);
+            padding: 10px 25px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        .filter-btn.active, .filter-btn:hover {
+            background-color: var(--primary-green);
+            color: var(--white);
+        }
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+        .product-card {
+            background-color: var(--white);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+        .product-image {
+            height: 200px;
             overflow: hidden;
         }
-
-        .portfolio-image img {
+        .product-image img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: var(--transition);
-            filter: grayscale(100%);
+            transition: transform 0.5s ease;
         }
-
-        .portfolio-item:hover .portfolio-image img {
-            filter: grayscale(0%);
+        .product-card:hover .product-image img {
             transform: scale(1.05);
         }
-
-        .portfolio-content {
-            padding: 25px;
+        .product-info {
+            padding: 20px;
         }
-
-        .portfolio-content h3 {
-            font-size: 1.4rem;
-            margin-bottom: 10px;
-        }
-
-        .portfolio-content p {
-            font-size: 0.95rem;
-            margin-bottom: 20px;
-        }
-
-        .portfolio-tech {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin-top: 15px;
-        }
-
-        .tech-tag {
-            background-color: rgba(0, 119, 255, 0.1);
-            color: var(--accent);
-            padding: 5px 12px;
-            border-radius: 50px;
-            font-size: 0.8rem;
-            font-weight: 600;
-        }
-
-        /* About */
-        .about-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: center;
-        }
-
-        .about-content h2 {
-            font-size: 2.2rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .about-highlights {
-            margin-top: 30px;
-        }
-
-        .highlight {
-            display: flex;
-            align-items: flex-start;
-            margin-bottom: 25px;
-        }
-
-        .highlight-icon {
-            background-color: rgba(0, 119, 255, 0.1);
-            color: var(--accent);
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-right: 15px;
-            flex-shrink: 0;
-            font-size: 1.2rem;
-        }
-
-        .about-visual {
-            position: relative;
-        }
-
-        .about-image {
-            border-radius: var(--border-radius);
-            overflow: hidden;
-            box-shadow: var(--shadow);
-        }
-
-        .about-image img {
-            width: 100%;
-            height: 400px;
-            object-fit: cover;
-        }
-
-        /* Contact */
-        .contact {
-            background-color: var(--secondary);
-            color: white;
-            position: relative;
-        }
-
-        .contact .section-title,
-        .contact .section-subtitle {
-            color: white;
-        }
-
-        .contact .section-subtitle {
-            opacity: 0.8;
-        }
-
-        .contact-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-        }
-
-        .contact-info h3 {
-            color: white;
-            font-size: 1.8rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .contact-details {
-            margin-top: 30px;
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: flex-start;
-            margin-bottom: 25px;
-        }
-
-        .contact-icon {
-            background-color: rgba(255, 255, 255, 0.1);
-            color: white;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-right: 15px;
-            flex-shrink: 0;
-            font-size: 1.2rem;
-        }
-
-        .contact-text h4 {
-            color: white;
+        .product-title {
             font-size: 1.1rem;
-            margin-bottom: 5px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            height: 50px;
+            overflow: hidden;
         }
-
-        .contact-text p {
-            color: rgba(255, 255, 255, 0.7);
+        .product-price {
+            color: var(--primary-green);
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 15px;
         }
-
-        .contact-form {
-            background-color: rgba(255, 255, 255, 0.05);
-            border-radius: var(--border-radius);
-            padding: 40px;
-            backdrop-filter: blur(10px);
+        .product-actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
-
-        .form-group {
+        .add-to-cart {
+            background-color: var(--primary-green);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: background-color 0.3s ease;
+        }
+        .add-to-cart:hover {
+            background-color: var(--dark-green);
+        }
+        /* Cart Modal */
+        .cart-modal {
+            position: fixed;
+            top: 0;
+            right: -400px;
+            width: 380px;
+            height: 100%;
+            background-color: white;
+            box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+            z-index: 1100;
+            transition: right 0.4s ease;
+            overflow-y: auto;
+        }
+        .cart-modal.active {
+            right: 0;
+        }
+        .cart-header {
+            background-color: var(--primary-green);
+            color: white;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .close-cart {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 28px;
+            cursor: pointer;
+        }
+        .cart-items {
+            padding: 20px;
+            max-height: calc(100vh - 250px);
+            overflow-y: auto;
+        }
+        .cart-item {
+            display: flex;
+            gap: 15px;
+            padding: 15px 0;
+            border-bottom: 1px solid #eee;
+        }
+        .cart-footer {
+            padding: 20px;
+            border-top: 2px solid #eee;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            background-color: white;
+        }
+        .cart-total {
+            display: flex;
+            justify-content: space-between;
+            font-size: 1.5rem;
+            font-weight: 700;
             margin-bottom: 20px;
         }
-
-        .form-control {
-            width: 100%;
+        .checkout-btn {
+            background-color: var(--accent-amber);
+            color: white;
+            border: none;
             padding: 15px;
-            border-radius: var(--border-radius);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            background-color: rgba(255, 255, 255, 0.05);
-            color: white;
-            font-family: inherit;
+            border-radius: 5px;
             font-size: 1rem;
-            transition: var(--transition);
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            width: 100%;
         }
-
-        .form-control:focus {
-            outline: none;
-            border-color: var(--accent);
+        .checkout-btn:hover {
+            background-color: #e67e00;
         }
-
-        .form-control::placeholder {
-            color: rgba(255, 255, 255, 0.5);
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1050;
+            display: none;
         }
-
-        textarea.form-control {
-            min-height: 150px;
-            resize: vertical;
+        .overlay.active {
+            display: block;
         }
-
         /* Footer */
-        .footer {
-            background-color: var(--primary);
-            color: white;
+        .main-footer {
+            background-color: var(--neutral-dark);
+            color: var(--white);
             padding: 70px 0 30px;
-            position: relative;
-            z-index: 2;
         }
-
-        .footer-container {
+        .footer-grid {
             display: grid;
-            grid-template-columns: 2fr 1fr 1fr;
-            gap: 50px;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
             margin-bottom: 50px;
         }
-
-        .footer-about .logo {
-            color: white;
-            margin-bottom: 20px;
-        }
-
-        .footer-about p {
-            color: rgba(255, 255, 255, 0.7);
-            max-width: 400px;
-        }
-
-        .footer-links h3,
-        .footer-contact h3 {
-            color: white;
-            font-size: 1.2rem;
+        .footer-column h3 {
+            font-size: 1.3rem;
             margin-bottom: 25px;
             position: relative;
             padding-bottom: 10px;
         }
-
-        .footer-links h3::after,
-        .footer-contact h3::after {
+        .footer-column h3::after {
             content: '';
             position: absolute;
             bottom: 0;
             left: 0;
-            width: 40px;
-            height: 2px;
-            background-color: var(--accent);
+            width: 50px;
+            height: 3px;
+            background-color: var(--primary-green);
         }
-
-        .footer-links ul li {
-            margin-bottom: 12px;
-        }
-
-        .footer-links a {
-            color: rgba(255, 255, 255, 0.7);
-        }
-
-        .footer-links a:hover {
-            color: var(--accent);
-            padding-left: 5px;
-        }
-
-        .footer-contact p {
-            color: rgba(255, 255, 255, 0.7);
-            margin-bottom: 15px;
-            display: flex;
-            align-items: flex-start;
-        }
-
-        .footer-contact i {
-            margin-right: 10px;
-            color: var(--accent);
-            margin-top: 3px;
-        }
-
-        .footer-bottom {
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            padding-top: 30px;
-            text-align: center;
-        }
-
-        .footer-bottom p {
-            color: rgba(255, 255, 255, 0.6);
-            font-size: 0.9rem;
-        }
-
-        .social-links {
-            display: flex;
-            gap: 15px;
-            margin-top: 20px;
-        }
-
-        .social-link {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background-color: rgba(255, 255, 255, 0.1);
-            color: white;
-            transition: var(--transition);
-        }
-
-        .social-link:hover {
-            background-color: var(--accent);
-            transform: translateY(-3px);
-        }
-
-        /* Logo Styling */
-        .logo-placeholder {
+        .contact-info {
             display: flex;
             flex-direction: column;
-            align-items: center;
-            justify-content: center;
+            gap: 15px;
+        }
+        .contact-info div {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+        .copyright {
             text-align: center;
-            font-weight: bold;
-            color: var(--primary);
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
         }
-
-        /* Video Fallback for mobile */
-        @media (max-width: 768px) {
-            .background-video {
-                opacity: 0.08; /* Even more transparent on mobile */
-            }
-            
-            .video-fallback {
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                color: rgba(255, 255, 255, 0.7);
-                font-size: 0.9rem;
-                text-align: center;
-                padding: 20px;
-            }
-        }
-
         /* Responsive */
         @media (max-width: 992px) {
-            .hero-container,
-            .about-container,
-            .contact-container,
-            .services-content {
-                grid-template-columns: 1fr;
-            }
-            
-            .hero {
-                padding-top: 140px;
-            }
-            
-            .hero-content h1 {
+            .hero h1 {
                 font-size: 2.8rem;
             }
-            
-            .section-title {
-                font-size: 2.2rem;
-            }
-            
-            .footer-container {
-                grid-template-columns: 1fr 1fr;
+            .services-grid {
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             }
         }
-
         @media (max-width: 768px) {
-            .mobile-menu-toggle {
+            .mobile-menu-btn {
                 display: block;
             }
-            
-            .nav {
+            .main-nav {
                 position: fixed;
-                top: 70px;
+                top: 80px;
                 left: 0;
                 width: 100%;
-                background-color: white;
+                background-color: var(--white);
                 flex-direction: column;
                 padding: 20px;
-                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+                box-shadow: 0 10px 15px rgba(0,0,0,0.1);
                 transform: translateY(-100%);
                 opacity: 0;
-                visibility: hidden;
-                transition: var(--transition);
+                transition: all 0.3s ease;
+                z-index: 999;
             }
-            
-            .nav.active {
+            .main-nav.active {
                 transform: translateY(0);
                 opacity: 1;
-                visibility: visible;
             }
-            
-            .nav-list {
+            .nav-links {
                 flex-direction: column;
                 width: 100%;
+                text-align: center;
             }
-            
-            .nav-item {
-                margin: 0 0 15px 0;
+            .hero {
+                padding: 80px 0;
+            }
+            .hero h1 {
+                font-size: 2.3rem;
+            }
+            .hero p {
+                font-size: 1.1rem;
+            }
+            .cart-modal {
                 width: 100%;
+                right: -100%;
             }
-            
-            .nav-link {
-                display: block;
-                padding: 12px 0;
-            }
-            
-            .hero-content h1 {
-                font-size: 2.4rem;
-            }
-            
-            .hero-stats {
-                flex-direction: column;
-                gap: 20px;
-            }
-            
-            .services-tabs {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .tab-btn {
-                width: 100%;
-                max-width: 300px;
-                justify-content: center;
-            }
-            
-            .portfolio-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .footer-container {
-                grid-template-columns: 1fr;
-                gap: 40px;
-            }
-            
-            .logo {
-                height: 50px;
-            }
-            
-            .logo-placeholder .logo-main {
-                font-size: 1.8rem;
-            }
-        }
-
-        @media (max-width: 576px) {
-            .hero-content h1 {
-                font-size: 2rem;
-            }
-            
-            .section {
-                padding: 70px 0;
-            }
-            
-            .section-title {
-                font-size: 1.8rem;
-            }
-            
-            .btn {
-                padding: 12px 24px;
-                font-size: 0.9rem;
-            }
-            
-            .contact-form {
-                padding: 30px 20px;
-            }
-            
-            .logo-placeholder .logo-main {
-                font-size: 1.5rem;
-            }
-        }
-
-        /* Video Loading State */
-        .video-loading {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            color: rgba(255, 255, 255, 0.7);
-            font-size: 1rem;
-        }
-
-        /* Instructions for custom video */
-        .video-instructions {
-            position: absolute;
-            bottom: 20px;
-            right: 20px;
-            background: rgba(0, 0, 0, 0.7);
-            color: white;
-            padding: 10px 15px;
-            border-radius: 5px;
-            font-size: 0.8rem;
-            max-width: 300px;
-            display: none; /* Hide by default */
-            z-index: 3;
         }
     </style>
 </head>
 <body>
-    <!-- Video Background with Real People -->
-    <div class="video-background">
-        <!-- 
-            VIDEO SOURCE INSTRUCTIONS:
-            
-            OPTION 1: Use a free stock video from Pexels/Videvo
-            Replace the src below with your chosen video URL
-            
-            OPTION 2: Use your own video file
-            Upload your video to your server and update the src
-            
-            Recommended video topics:
-            - People discussing tech projects
-            - Team collaboration in office
-            - Developers coding together
-            - Network engineers setting up equipment
-            - IT professionals in meetings
-            
-            Video should be:
-            - MP4 format for compatibility
-            - 10-30 seconds looped
-            - High quality but compressed
-            - Muted with no audio needed
-        -->
-        <video class="background-video" autoplay muted loop playsinline>
-            <!-- Primary video source - Replace with your video -->
-            <source src="https://assets.mixkit.co/videos/preview/mixkit-professional-engineers-discussing-a-project-43706-large.mp4" type="video/mp4">
-            
-            <!-- Fallback video source - Add additional formats if needed -->
-            <source src="https://cdn.videvo.net/videvo_files/video/free/2016-08/large_watermarked/Preparados_para_la_reunion_Stock_Video_hd_video_h264_1080p_25fps.mp4" type="video/mp4">
-            
-            <!-- Fallback image if video doesn't load -->
-            <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" alt="Team Collaboration Background">
-            
-            Your browser does not support the video tag.
-        </video>
-        
-        <!-- Gradient overlay for better text contrast -->
-        <div class="video-overlay"></div>
-        
-        <!-- Loading indicator -->
-        <div class="video-loading" id="videoLoading">
-            <i class="fas fa-spinner fa-spin"></i> Loading background...
-        </div>
-        
-        <!-- Instructions (visible only on hover for developers) -->
-        <div class="video-instructions" id="videoInstructions">
-            <strong>Video Background:</strong> To use your own video, replace the video source URLs in the code with your MP4 file links. Recommended: 10-30 second loop of people discussing tech projects.
-        </div>
-    </div>
-
     <!-- Header -->
-    <header class="header">
+    <header class="main-header">
         <div class="container header-container">
-            <a href="#home" class="logo">
-                <div class="logo-placeholder">
-                    <img src="mateor-labs-high-resolution-logo.png" alt="Mateor Labs Logo" style="height: 60px; width: auto;">
-                </div>
+            <a href="#" class="logo">
+                <i class="fas fa-warehouse"></i>
+                Wetine<span>Enterprises</span>
             </a>
-            
-            <button class="mobile-menu-toggle" id="mobileMenuToggle">
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
                 <i class="fas fa-bars"></i>
             </button>
-            
-            <nav class="nav" id="nav">
-                <ul class="nav-list">
-                    <li class="nav-item"><a href="#home" class="nav-link">Home</a></li>
-                    <li class="nav-item"><a href="#services" class="nav-link">Services</a></li>
-                    <li class="nav-item"><a href="#portfolio" class="nav-link">Portfolio</a></li>
-                    <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
-                    <li class="nav-item"><a href="#partners" class="nav-link">Partners</a></li>
-                    <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
+            <nav class="main-nav" id="mainNav">
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#products" id="productsLink">Products</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
+                    <li><a href="#contact">Contact</a></li>
                 </ul>
+                <div class="cart-icon" id="cartIcon">
+                    <i class="fas fa-shopping-cart"></i>
+                    <div class="cart-count" id="cartCount">0</div>
+                </div>
             </nav>
         </div>
     </header>
 
     <!-- Hero Section -->
     <section class="hero" id="home">
-        <div class="container hero-container">
-            <div class="hero-content fade-in-up">
-                <h1>Technology Solutions for the Digital Space</h1>
-                <p>Providing innovative technological services, software deployment, network configuration, and ICT equipment solutions since 2021.</p>
-                <div class="hero-buttons">
-                    <a href="#contact" class="btn btn-primary">Get Started <i class="fas fa-arrow-right"></i></a>
-                    <a href="#portfolio" class="btn btn-outline">View Our Work</a>
-                </div>
-                <div class="hero-stats">
-                    <div class="stat-item">
-                        <div class="stat-number">50+</div>
-                        <div class="stat-label">Projects Completed</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number">24/7</div>
-                        <div class="stat-label">Support</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number">100%</div>
-                        <div class="stat-label">Client Satisfaction</div>
-                    </div>
-                </div>
+        <div class="container">
+            <h1>Quality Hardware & Electronics.</h1>
+            <p>From industrial tools and construction materials to cutting-edge computers and mobile devices, we provide durable, sustainable solutions designed to build, secure, and power your business forward.</p>
+            <a href="#products" class="cta-button" id="shopNowBtn">Explore Our Products</a>
+        </div>
+    </section>
+
+    <!-- Services/Products Overview -->
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Tailored Solutions for Every Need.</h2>
+                <p>Secure, Reliable, and Built to Last. We supply the essential tools and technology that form the foundation of homes, businesses, and industries across Zimbabwe.</p>
             </div>
-            <div class="hero-visual fade-in">
-                <div class="hero-image">
-                    <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Technology Solutions">
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h3>Tools & Equipment</h3>
+                    <p>High-quality tools for both home DIY and industrial applications, all meeting stringent quality standards and backed by guarantees.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-hammer"></i>
+                    </div>
+                    <h3>Hardware & Supplies</h3>
+                    <p>Durable wheelbarrows, garden tools, construction equipment, electrical conduits, and sundries you can count on every day.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-hard-hat"></i>
+                    </div>
+                    <h3>Protective Clothing</h3>
+                    <p>Trusted safety wear including industrial gear, fire-resistant clothing, heavy-duty wear, and full body protection for any worksite.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-tree"></i>
+                    </div>
+                    <h3>Timber & Wood Products</h3>
+                    <p>Premium timber from the country's best mills, used for roofing, carpentry, and high-quality timber products like doors.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <h3>Roofing Solutions</h3>
+                    <p>High-quality asbestos roofing sheets, IBR sheets, and roofing tiles to provide secure and lasting shelter.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-laptop"></i>
+                    </div>
+                    <h3>Electronics & IT</h3>
+                    <p>Computers, printers, CCTV systems, internet modems, mobile phones, and accessories from genuine suppliers with warranty.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Services Section -->
-    <section class="section services" id="services">
+    <!-- Business Challenges -->
+    <section class="challenges" id="challenges">
         <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Our Services</h2>
-                <p class="section-subtitle">Comprehensive technology solutions tailored to drive your digital transformation and business growth.</p>
+            <div class="section-title">
+                <h2>Overcoming Common Business Hurdles</h2>
+                <p>We understand the challenges faced by builders, contractors, and businesses in sourcing reliable materials and equipment.</p>
             </div>
-            
-            <div class="services-tabs">
-                <button class="tab-btn active" data-tab="tech">
-                    <i class="fas fa-laptop-code"></i> Technology Services
-                </button>
-                <button class="tab-btn" data-tab="network">
-                    <i class="fas fa-network-wired"></i> Network Solutions
-                </button>
-                <button class="tab-btn" data-tab="ict">
-                    <i class="fas fa-server"></i> ICT Equipment
-                </button>
-                <button class="tab-btn" data-tab="consulting">
-                    <i class="fas fa-chart-line"></i> IT Consulting
-                </button>
-            </div>
-            
-            <!-- Technology Services -->
-            <div class="services-content active" id="tech-content">
-                <div class="service-image">
-                    <img src="https://images.unsplash.com/photo-1517077304055-6e89abbf09b0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Technology Services">
+            <div class="challenges-grid">
+                <div class="challenge-card">
+                    <div class="challenge-stat">90%</div>
+                    <h3>Finding Durable Products</h3>
+                    <p>of contractors report difficulty sourcing tools and materials that last, leading to frequent replacements and cost overruns.</p>
                 </div>
-                <div class="service-details">
-                    <h3>Technology Services</h3>
-                    <p>We deliver cutting-edge technology solutions that transform businesses and drive digital innovation. Our services are designed to optimize operations, enhance productivity, and future-proof your organization.</p>
-                    <div class="service-features">
-                        <div class="service-feature">
-                            <i class="fas fa-check-circle"></i>
-                            <div>
-                                <h4>Custom Software Development</h4>
-                                <p>Tailored applications built to address your specific business challenges and opportunities.</p>
-                            </div>
-                        </div>
-                        <div class="service-feature">
-                            <i class="fas fa-check-circle"></i>
-                            <div>
-                                <h4>Cloud Solutions & Migration</h4>
-                                <p>Seamless transition to cloud infrastructure with ongoing management and optimization.</p>
-                            </div>
-                        </div>
-                        <div class="service-feature">
-                            <i class="fas fa-check-circle"></i>
-                            <div>
-                                <h4>System Integration</h4>
-                                <p>Connecting disparate systems to create cohesive, efficient technology ecosystems.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <a href="#contact" class="btn btn-primary">Discuss Your Project</a>
+                <div class="challenge-card">
+                    <div class="challenge-stat">70%</div>
+                    <h3>Supply Chain Delays</h3>
+                    <p>of projects experience delays due to unreliable suppliers, impacting deadlines and increasing labour costs.</p>
                 </div>
-            </div>
-            
-            <!-- Network Solutions -->
-            <div class="services-content" id="network-content">
-                <div class="service-image">
-                    <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Network Solutions">
+                <div class="challenge-card">
+                    <div class="challenge-stat">$1K+</div>
+                    <h3>Hidden Costs of Quality</h3>
+                    <p>Average monthly loss per business from equipment failure, safety incidents, and substandard materials.</p>
                 </div>
-                <div class="service-details">
-                    <h3>Network Solutions</h3>
-                    <p>Secure, reliable, and scalable network infrastructure designed to support your business operations now and in the future. We implement robust networking solutions that ensure connectivity, security, and performance.</p>
-                    <div class="service-features">
-                        <div class="service-feature">
-                            <i class="fas fa-check-circle"></i>
-                            <div>
-                                <h4>Network Design & Implementation</h4>
-                                <p>Comprehensive network architecture planning and deployment for optimal performance.</p>
-                            </div>
-                        </div>
-                        <div class="service-feature">
-                            <i class="fas fa-check-circle"></i>
-                            <div>
-                                <h4>Cybersecurity Infrastructure</h4>
-                                <p>Multi-layered security solutions to protect your data, systems, and networks.</p>
-                            </div>
-                        </div>
-                        <div class="service-feature">
-                            <i class="fas fa-check-circle"></i>
-                            <div>
-                                <h4>Network Monitoring & Management</h4>
-                                <p>Proactive monitoring and maintenance to ensure network reliability and uptime.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <a href="#contact" class="btn btn-primary">Secure Your Network</a>
-                </div>
-            </div>
-            
-            <!-- ICT Equipment -->
-            <div class="services-content" id="ict-content">
-                <div class="service-image">
-                    <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="ICT Equipment">
-                </div>
-                <div class="service-details">
-                    <h3>ICT Equipment Solutions</h3>
-                    <p>High-quality ICT hardware and equipment from trusted manufacturers to build and enhance your technology infrastructure. We provide end-to-end solutions from procurement to configuration and support.</p>
-                    <div class="service-features">
-                        <div class="service-feature">
-                            <i class="fas fa-check-circle"></i>
-                            <div>
-                                <h4>Enterprise Hardware Procurement</h4>
-                                <p>Strategic sourcing of reliable, enterprise-grade ICT equipment from leading vendors.</p>
-                            </div>
-                        </div>
-                        <div class="service-feature">
-                            <i class="fas fa-check-circle"></i>
-                            <div>
-                                <h4>Installation & Configuration</h4>
-                                <p>Professional setup and optimization of hardware to ensure peak performance.</p>
-                            </div>
-                        </div>
-                        <div class="service-feature">
-                            <i class="fas fa-check-circle"></i>
-                            <div>
-                                <h4>Maintenance & Support</h4>
-                                <p>Ongoing technical support and maintenance services to maximize equipment lifespan.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <a href="#contact" class="btn btn-primary">Request Equipment Quote</a>
-                </div>
-            </div>
-            
-            <!-- IT Consulting -->
-            <div class="services-content" id="consulting-content">
-                <div class="service-image">
-                    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="IT Consulting">
-                </div>
-                <div class="service-details">
-                    <h3>IT Consulting & Strategy</h3>
-                    <p>Strategic technology guidance to align your IT investments with business objectives. We help organizations navigate digital transformation and leverage technology for competitive advantage.</p>
-                    <div class="service-features">
-                        <div class="service-feature">
-                            <i class="fas fa-check-circle"></i>
-                            <div>
-                                <h4>Digital Transformation Strategy</h4>
-                                <p>Comprehensive roadmaps for leveraging technology to transform business operations.</p>
-                            </div>
-                        </div>
-                        <div class="service-feature">
-                            <i class="fas fa-check-circle"></i>
-                            <div>
-                                <h4>Technology Assessment & Planning</h4>
-                                <p>Evaluation of current technology landscape and strategic planning for future needs.</p>
-                            </div>
-                        </div>
-                        <div class="service-feature">
-                            <i class="fas fa-check-circle"></i>
-                            <div>
-                                <h4>IT Governance & Compliance</h4>
-                                <p>Framework development for effective IT management, risk mitigation, and compliance.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <a href="#contact" class="btn btn-primary">Schedule Consultation</a>
+                <div class="challenge-card">
+                    <div class="challenge-stat">24/7</div>
+                    <h3>Need for Dependable Support</h3>
+                    <p>Access to reliable product guarantees and supplier support is non-negotiable for keeping operations smooth.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Portfolio Section -->
-    <section class="section portfolio" id="portfolio">
+    <!-- Product Shopping Section (Initially Hidden) -->
+    <section class="product-section" id="products">
         <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Our Portfolio</h2>
-                <p class="section-subtitle">Showcasing innovative technology solutions that have transformed businesses and delivered measurable results.</p>
+            <div class="section-title">
+                <h2>Our Product Catalog</h2>
+                <p>Browse and purchase our high-quality range of hardware and electronics. Add items to your cart and order directly via WhatsApp.</p>
             </div>
-            
-            <div class="portfolio-grid">
-                <div class="portfolio-item fade-in-up">
-                    <div class="portfolio-image">
-                        <img src="https://images.unsplash.com/photo-1542744095-fcf48d80b0fd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Enterprise Network Solutions">
-                    </div>
-                    <div class="portfolio-content">
-                        <h3>Enterprise Network Solutions</h3>
-                        <p>Comprehensive network infrastructure design and implementation for a financial institution with 50+ branches nationwide, improving connectivity and security.</p>
-                        <div class="portfolio-tech">
-                            <span class="tech-tag">Cisco</span>
-                            <span class="tech-tag">Fortinet</span>
-                            <span class="tech-tag">SD-WAN</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="portfolio-item fade-in-up">
-                    <div class="portfolio-image">
-                        <img src="https://images.unsplash.com/photo-1531297484001-80022131f5a1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Digital Transformation">
-                    </div>
-                    <div class="portfolio-content">
-                        <h3>Digital Transformation Initiative</h3>
-                        <p>Cloud migration and process automation for a retail chain with over 200 stores, resulting in 40% operational efficiency improvement.</p>
-                        <div class="portfolio-tech">
-                            <span class="tech-tag">AWS</span>
-                            <span class="tech-tag">Azure</span>
-                            <span class="tech-tag">Automation</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="portfolio-item fade-in-up">
-                    <div class="portfolio-image">
-                        <img src="https://images.unsplash.com/photo-1518186285589-2f7649de83e0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="ICT Infrastructure">
-                    </div>
-                    <div class="portfolio-content">
-                        <h3>ICT Infrastructure Modernization</h3>
-                        <p>End-to-end technology infrastructure setup for a new corporate campus supporting 1000+ employees with cutting-edge collaboration tools.</p>
-                        <div class="portfolio-tech">
-                            <span class="tech-tag">VMware</span>
-                            <span class="tech-tag">Microsoft 365</span>
-                            <span class="tech-tag">Unified Comms</span>
-                        </div>
-                    </div>
-                </div>
+            <div class="product-filters">
+                <button class="filter-btn active" data-filter="all">All Products</button>
+                <button class="filter-btn" data-filter="hardware">Hardware Tools</button>
+                <button class="filter-btn" data-filter="electronics">Computer Accessories</button>
+                <button class="filter-btn" data-filter="safety">Safety Equipment</button>
+            </div>
+            <div class="product-grid" id="productGrid">
+                <!-- Products loaded by JavaScript -->
             </div>
         </div>
     </section>
 
-    <!-- About Section -->
-    <section class="section about" id="about">
+    <!-- Testimonials -->
+    <section class="testimonials" id="testimonials">
         <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">About Mateor Labs</h2>
-                <p class="section-subtitle">Driving technological excellence through innovation, expertise, and client-focused solutions since 2021.</p>
+            <div class="section-title">
+                <h2>Trusted by Industry Professionals</h2>
+                <p>See what our customers say about the quality and reliability of Wetine Enterprises products and service.</p>
             </div>
-            
-            <div class="about-container">
-                <div class="about-content">
-                    <h2>Leading Technology Solutions Provider</h2>
-                    <p>Mateor Labs (Private) Limited is a premier technology solutions company specializing in delivering innovative digital transformation services, network infrastructure, and ICT equipment solutions.</p>
-                    <p>Founded in 2021, we have rapidly established ourselves as a trusted partner for businesses seeking to leverage technology for competitive advantage and operational excellence.</p>
-                    
-                    <div class="about-highlights">
-                        <div class="highlight">
-                            <div class="highlight-icon">
-                                <i class="fas fa-bullseye"></i>
-                            </div>
-                            <div>
-                                <h3>Our Mission</h3>
-                                <p>To empower businesses with transformative technology solutions that drive growth, efficiency, and innovation in the digital era.</p>
-                            </div>
-                        </div>
-                        
-                        <div class="highlight">
-                            <div class="highlight-icon">
-                                <i class="fas fa-eye"></i>
-                            </div>
-                            <div>
-                                <h3>Our Vision</h3>
-                                <p>To be the leading technology partner for organizations across Africa, recognized for excellence, innovation, and client success.</p>
-                            </div>
-                        </div>
-                        
-                        <div class="highlight">
-                            <div class="highlight-icon">
-                                <i class="fas fa-handshake"></i>
-                            </div>
-                            <div>
-                                <h3>Our Values</h3>
-                                <p>Innovation, Integrity, Excellence, Client-Centricity, and Continuous Improvement guide everything we do.</p>
-                            </div>
+            <div class="testimonial-slider">
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"The roofing sheets and timber we sourced for our latest project were exceptional quality. They withstood heavy rains perfectly, and the delivery was on schedule. Wetine Enterprises is now our go-to supplier."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">C</div>
+                        <div class="author-info">
+                            <h4>Chengetai Mapfumo</h4>
+                            <p>Project Manager, Harare Construction Ltd.</p>
                         </div>
                     </div>
-                </div>
-                
-                <div class="about-visual">
-                    <div class="about-image">
-                        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="About Mateor Labs">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Partners Section -->
-    <section class="section partners" id="partners">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Technology Partners</h2>
-                <p class="section-subtitle">We collaborate with industry-leading technology partners to deliver best-in-class solutions to our clients.</p>
-            </div>
-            
-            <div class="partners-container">
-                <div class="partners-grid">
-                    <div class="partner-card fade-in-up">
-                        <div class="partner-logo">
-                            <i class="fas fa-shield-alt" style="font-size: 3.5rem; color: var(--accent);"></i>
-                        </div>
-                        <h3 class="partner-name">ESET Cybersecurity</h3>
-                        <p class="partner-description">World-leading cybersecurity solutions provider with advanced threat detection and prevention technologies.</p>
-                    </div>
-                    
-                    <div class="partner-card fade-in-up">
-                        <div class="partner-logo">
-                            <i class="fas fa-lock" style="font-size: 3.5rem; color: var(--accent);"></i>
-                        </div>
-                        <h3 class="partner-name">SOPHOS Security</h3>
-                        <p class="partner-description">Advanced network security and threat intelligence solutions for businesses of all sizes.</p>
-                    </div>
-                    
-                    <div class="partner-card fade-in-up">
-                        <div class="partner-logo">
-                            <i class="fas fa-cloud" style="font-size: 3.5rem; color: var(--accent);"></i>
-                        </div>
-                        <h3 class="partner-name">Microsoft Azure</h3>
-                        <p class="partner-description">Leading cloud platform for building, deploying, and managing applications and services.</p>
-                    </div>
-                    
-                    <div class="partner-card fade-in-up">
-                        <div class="partner-logo">
-                            <i class="fas fa-network-wired" style="font-size: 3.5rem; color: var(--accent);"></i>
-                        </div>
-                        <h3 class="partner-name">Cisco Systems</h3>
-                        <p class="partner-description">Global leader in networking, cybersecurity, and collaboration solutions for enterprises.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section class="section contact" id="contact">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Get In Touch</h2>
-                <p class="section-subtitle">Ready to transform your business with technology? Contact us today to discuss your requirements.</p>
-            </div>
-            
-            <div class="contact-container">
-                <div class="contact-info">
-                    <h3>Connect With Our Team</h3>
-                    <p>We're here to help you navigate your technology journey. Reach out to us for consultations, project discussions, or any inquiries.</p>
-                    
-                    <div class="contact-details">
-                        <div class="contact-item">
-                            <div class="contact-icon">
-                                <i class="fas fa-envelope"></i>
-                            </div>
-                            <div class="contact-text">
-                                <h4>Email Us</h4>
-                                <p>info@mateorlabs.co.zw</p>
-                            </div>
-                        </div>
-                        
-                        <div class="contact-item">
-                            <div class="contact-icon">
-                                <i class="fas fa-globe"></i>
-                            </div>
-                            <div class="contact-text">
-                                <h4>Online Presence</h4>
-                                <p>Fully digital operations with remote support capabilities across regions</p>
-                            </div>
-                        </div>
-                        
-                        <div class="contact-item">
-                            <div class="contact-icon">
-                                <i class="fas fa-clock"></i>
-                            </div>
-                            <div class="contact-text">
-                                <h4>Response Time</h4>
-                                <p>We typically respond to inquiries within 24 hours during business days</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="social-links">
-                        <a href="https://www.instagram.com/mateorlabs" class="social-link" target="_blank"><i class="fab fa-instagram"></i></a>
-                        <a href="https://www.facebook.com/MateorLabs" class="social-link" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                        <a href="https://www.linkedin.com/company/mateorlabs" class="social-link" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="https://www.x.com/mateorlabs" class="social-link" target="_blank"><i class="fab fa-twitter"></i></a>
-                    </div>
-                </div>
-                
-                <div class="contact-form">
-                    <form id="contactForm">
-                        <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Your Name" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="email" class="form-control" placeholder="Email Address" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Company Name">
-                        </div>
-                        <div class="form-group">
-                            <select class="form-control" required>
-                                <option value="" disabled selected>Service Interest</option>
-                                <option value="technology">Technology Services</option>
-                                <option value="network">Network Solutions</option>
-                                <option value="ict">ICT Equipment</option>
-                                <option value="consulting">IT Consulting</option>
-                                <option value="other">Other</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <textarea class="form-control" placeholder="Project Details or Inquiry" required></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message <i class="fas fa-paper-plane"></i></button>
-                    </form>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="footer">
+    <footer class="main-footer" id="contact">
         <div class="container">
-            <div class="footer-container">
-                <div class="footer-about">
-                    <a href="#home" class="logo">
-                        <div class="logo-placeholder">
-                           <img src="mateor-labs-high-resolution-logo.png" alt="Mateor Labs Logo" style="height: 60px; width: auto;">
-                        </div>
-                    </a>
-                    <p>Leading provider of innovative technology solutions, software deployment, network configuration, and ICT equipment since 2021.</p>
-                    <p>Mateor Labs (Private) Limited</p>
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h3>Wetine Enterprises</h3>
+                    <p>Providing high-quality tools, hardware, electronics, and sustainable products to individuals and corporates across Zimbabwe since establishment.</p>
+                    <p><strong>Our Motto:</strong> Sustainable products everywhere.</p>
                 </div>
-                
-                <div class="footer-links">
+                <div class="footer-column">
                     <h3>Quick Links</h3>
-                    <ul>
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#services">Services</a></li>
-                        <li><a href="#portfolio">Portfolio</a></li>
-                        <li><a href="#about">About Us</a></li>
-                        <li><a href="#partners">Partners</a></li>
-                        <li><a href="#contact">Contact</a></li>
+                    <ul style="list-style: none;">
+                        <li style="margin-bottom: 10px;"><a href="#home" style="color: #ccc; text-decoration: none;">Home</a></li>
+                        <li style="margin-bottom: 10px;"><a href="#products" style="color: #ccc; text-decoration: none;">Products</a></li>
+                        <li style="margin-bottom: 10px;"><a href="#about" style="color: #ccc; text-decoration: none;">About Us</a></li>
+                        <li style="margin-bottom: 10px;"><a href="#contact" style="color: #ccc; text-decoration: none;">Contact</a></li>
                     </ul>
                 </div>
-                
-                <div class="footer-contact">
-                    <h3>Contact Info</h3>
-                    <p><i class="fas fa-envelope"></i> info@mateorlabs.co.zw</p>
-                    <p><i class="fas fa-globe"></i> www.mateorlabs.co.zw</p>
-                    <p><i class="fas fa-map-marker-alt"></i> Digital Operations | Serving Clients Nationwide</p>
-                    <p><i class="fas fa-building"></i> Mateor Labs (Private) Limited</p>
+                <div class="footer-column">
+                    <h3>Contact Details</h3>
+                    <div class="contact-info">
+                        <div>
+                            <i class="fas fa-phone"></i>
+                            <span>+263 788 375 175</span>
+                        </div>
+                        <div>
+                            <i class="fas fa-envelope"></i>
+                            <span>wetineenterprises2023@gmail.com</span>
+                        </div>
+                        <div>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Std No.56, Close 228, Budiriro 1, Harare</span>
+                        </div>
+                        <div>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>56228 Close No.1, Budiriro, Harare</span>
+                        </div>
+                    </div>
                 </div>
             </div>
-            
-            <div class="footer-bottom">
-                <p>&copy; 2021-2023 Mateor Labs (Private) Limited. All rights reserved. | Data privacy and protection compliant.</p>
-                <p>Technology Solutions for the Digital Space</p>
+            <div class="copyright">
+                <p>&copy; 2023 Wetine Enterprises. All Rights Reserved.</p>
             </div>
         </div>
     </footer>
 
+    <!-- Cart Modal & Overlay -->
+    <div class="overlay" id="overlay"></div>
+    <div class="cart-modal" id="cartModal">
+        <div class="cart-header">
+            <h3 style="color: white; margin: 0;">Your Cart</h3>
+            <button class="close-cart" id="closeCart">&times;</button>
+        </div>
+        <div class="cart-items" id="cartItems">
+            <p style="text-align: center; padding: 40px 20px; color: #888;">Your cart is empty</p>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Total:</span>
+                <span id="cartTotalPrice">$0.00</span>
+            </div>
+            <button class="checkout-btn" id="checkoutBtn">
+                <i class="fab fa-whatsapp"></i> Order via WhatsApp
+            </button>
+        </div>
+    </div>
+
     <script>
-        // Video Background Management
-        const video = document.querySelector('.background-video');
-        const videoLoading = document.getElementById('videoLoading');
-        const videoInstructions = document.getElementById('videoInstructions');
+        // ===== PRODUCT DATA =====
+        const products = [
+            // HARDWARE TOOLS
+            { id: 1, name: "Professional Claw Hammer", category: "hardware", price: 25.99, image: "https://images.unsplash.com/photo-1581235720524-7df154d0dbb8?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" },
+            { id: 2, name: "Electric Power Drill Set", category: "hardware", price: 89.99, image: "https://images.unsplash.com/photo-1572981779307-38b8cabb2406?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" },
+            { id: 3, name: "Industrial Wheelbarrow", category: "hardware", price: 149.99, image: "https://images.unsplash.com/photo-1565538810643-b5bdb714032a?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=60" },
+            { id: 4, name: "Complete Tool Kit (32pc)", category: "hardware", price: 75.00, image: "https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" },
+            { id: 5, name: "Angle Grinder", category: "hardware", price: 69.99, image: "https://images.unsplash.com/photo-1581092580497-e0d4cb184827?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" },
+            { id: 6, name: "Construction Screwdrivers Set", category: "hardware", price: 28.50, image: "https://images.unsplash.com/photo-1574944985073-8d7b79f9b5e9?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" },
+            
+            // COMPUTER ACCESSORIES
+            { id: 7, name: "Wireless Keyboard & Mouse", category: "electronics", price: 45.99, image: "https://images.unsplash.com/photo-1541140532154-b024d705b90a?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" },
+            { id: 8, name: "Computer Monitor 24-inch", category: "electronics", price: 189.99, image: "https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" },
+            { id: 9, name: "Laptop Cooling Pad", category: "electronics", price: 32.50, image: "https://images.unsplash.com/photo-1593640408182-31c70c8268f5?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" },
+            { id: 10, name: "USB-C Hub Adapter", category: "electronics", price: 39.99, image: "https://images.unsplash.com/photo-1587829741301-dc798b83add3?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" },
+            { id: 11, name: "Computer Speakers", category: "electronics", price: 59.99, image: "https://images.unsplash.com/photo-1589003077984-894e133dabab?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" },
+            { id: 12, name: "Gaming Headset", category: "electronics", price: 79.99, image: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" },
+            
+            // SAFETY EQUIPMENT
+            { id: 13, name: "Safety Helmet with Visor", category: "safety", price: 18.50, image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" },
+            { id: 14, name: "Industrial Safety Gloves", category: "safety", price: 12.75, image: "https://images.unsplash.com/photo-1611591437281-8a4d6c202c7a?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" },
+            { id: 15, name: "Safety Goggles", category: "safety", price: 8.99, image: "https://images.unsplash.com/photo-1593536605975-3c36bdc7b4ec?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" },
+            { id: 16, name: "Ear Protection", category: "safety", price: 15.50, image: "https://images.unsplash.com/photo-1621451537084-482c73073a0f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" },
+            
+            // BUILDING MATERIALS
+            { id: 17, name: "Roofing Sheets (10 pack)", category: "hardware", price: 125.00, image: "https://images.unsplash.com/photo-1621506289937-a8e4d8d2f4e1?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=60" },
+            { id: 18, name: "Construction Nails (5kg)", category: "hardware", price: 15.75, image: "https://images.unsplash.com/photo-1598128558393-8ffc1f1bdc56?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" }
+        ];
 
-        // Show video loading state
-        video.addEventListener('loadstart', () => {
-            videoLoading.style.display = 'block';
+        // ===== CART & STATE =====
+        let cart = JSON.parse(localStorage.getItem('wetineCart')) || [];
+
+        // ===== DOM ELEMENTS =====
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mainNav = document.getElementById('mainNav');
+        const cartIcon = document.getElementById('cartIcon');
+        const cartModal = document.getElementById('cartModal');
+        const overlay = document.getElementById('overlay');
+        const closeCart = document.getElementById('closeCart');
+        const cartCount = document.getElementById('cartCount');
+        const cartItems = document.getElementById('cartItems');
+        const cartTotalPrice = document.getElementById('cartTotalPrice');
+        const checkoutBtn = document.getElementById('checkoutBtn');
+        const productGrid = document.getElementById('productGrid');
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const productSection = document.querySelector('.product-section');
+        const productsLink = document.getElementById('productsLink');
+        const shopNowBtn = document.getElementById('shopNowBtn');
+
+        // ===== INITIALIZATION =====
+        document.addEventListener('DOMContentLoaded', function() {
+            renderProducts('all');
+            updateCartDisplay();
+            setupEventListeners();
         });
 
-        // Hide loading when video can play
-        video.addEventListener('canplay', () => {
-            videoLoading.style.display = 'none';
-        });
+        // ===== EVENT LISTENERS =====
+        function setupEventListeners() {
+            mobileMenuBtn.addEventListener('click', () => mainNav.classList.toggle('active'));
+            cartIcon.addEventListener('click', toggleCart);
+            closeCart.addEventListener('click', toggleCart);
+            overlay.addEventListener('click', toggleCart);
+            checkoutBtn.addEventListener('click', checkoutViaWhatsApp);
+            productsLink.addEventListener('click', showProductSection);
+            shopNowBtn.addEventListener('click', showProductSection);
 
-        // Show instructions on Ctrl+Click
-        document.addEventListener('keydown', (e) => {
-            if (e.ctrlKey && e.shiftKey) {
-                videoInstructions.style.display = 'block';
-                setTimeout(() => {
-                    videoInstructions.style.display = 'none';
-                }, 5000);
-            }
-        });
-
-        // Instructions for replacing video
-        console.log('VIDEO BACKGROUND INSTRUCTIONS:');
-        console.log('==============================');
-        console.log('To replace the background video:');
-        console.log('1. Find the <video> element in the HTML (around line 15)');
-        console.log('2. Replace the src attribute with your video URL');
-        console.log('3. Recommended: Use MP4 format, 10-30 second loop');
-        console.log('4. Good sources: Pexels, Videvo, or your own recordings');
-        console.log('5. Suggested topics: Tech teams discussing, coding, networking');
-
-        // Mobile Menu Toggle
-        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
-        const nav = document.getElementById('nav');
-        
-        mobileMenuToggle.addEventListener('click', () => {
-            nav.classList.toggle('active');
-            mobileMenuToggle.innerHTML = nav.classList.contains('active') 
-                ? '<i class="fas fa-times"></i>' 
-                : '<i class="fas fa-bars"></i>';
-        });
-        
-        // Close mobile menu when clicking a link
-        document.querySelectorAll('.nav-link').forEach(link => {
-            link.addEventListener('click', () => {
-                nav.classList.remove('active');
-                mobileMenuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    renderProducts(this.dataset.filter);
+                });
             });
-        });
-        
-        // Header scroll effect
-        const header = document.querySelector('.header');
-        
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) {
-                header.classList.add('scrolled');
+
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    const href = this.getAttribute('href');
+                    if (href === '#products') {
+                        e.preventDefault();
+                        showProductSection();
+                        return;
+                    }
+                    if (href !== '#' && href !== '#home') {
+                        e.preventDefault();
+                        const targetEl = document.querySelector(href);
+                        if (targetEl) {
+                            window.scrollTo({
+                                top: targetEl.offsetTop - 80,
+                                behavior: 'smooth'
+                            });
+                            mainNav.classList.remove('active');
+                        }
+                    }
+                });
+            });
+        }
+
+        // ===== PRODUCT RENDERING =====
+        function renderProducts(filter) {
+            productGrid.innerHTML = '';
+            const filtered = filter === 'all' ? products : products.filter(p => p.category === filter);
+
+            filtered.forEach(product => {
+                const isInCart = cart.find(item => item.id === product.id);
+                const card = document.createElement('div');
+                card.className = 'product-card';
+                card.innerHTML = `
+                    <div class="product-image">
+                        <img src="${product.image}" alt="${product.name}">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">${product.name}</h3>
+                        <div class="product-price">$${product.price.toFixed(2)}</div>
+                        <div class="product-actions">
+                            <button class="add-to-cart" data-id="${product.id}">
+                                <i class="fas fa-cart-plus"></i> ${isInCart ? 'Update Cart' : 'Add to Cart'}
+                            </button>
+                        </div>
+                    </div>
+                `;
+                productGrid.appendChild(card);
+            });
+
+            document.querySelectorAll('.add-to-cart').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const id = parseInt(this.dataset.id);
+                    addToCart(id, 1);
+                });
+            });
+        }
+
+        // ===== CART FUNCTIONS =====
+        function addToCart(productId, quantity) {
+            const product = products.find(p => p.id === productId);
+            const existingIndex = cart.findIndex(item => item.id === productId);
+
+            if (existingIndex > -1) {
+                cart[existingIndex].quantity += quantity;
             } else {
-                header.classList.remove('scrolled');
+                cart.push({
+                    id: product.id,
+                    name: product.name,
+                    price: product.price,
+                    image: product.image,
+                    quantity: quantity
+                });
             }
-        });
-        
-        // Services Tabs
-        const tabButtons = document.querySelectorAll('.tab-btn');
-        const serviceContents = document.querySelectorAll('.services-content');
-        
-        tabButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                // Remove active class from all buttons and contents
-                tabButtons.forEach(btn => btn.classList.remove('active'));
-                serviceContents.forEach(content => content.classList.remove('active'));
-                
-                // Add active class to clicked button
-                button.classList.add('active');
-                
-                // Show corresponding content
-                const tabId = button.getAttribute('data-tab');
-                document.getElementById(`${tabId}-content`).classList.add('active');
+
+            localStorage.setItem('wetineCart', JSON.stringify(cart));
+            updateCartDisplay();
+            showNotification(`Added ${product.name} to cart`);
+        }
+
+        function updateCartDisplay() {
+            const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+            cartCount.textContent = totalItems;
+
+            const totalPrice = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            cartTotalPrice.textContent = `$${totalPrice.toFixed(2)}`;
+
+            renderCartItems();
+        }
+
+        function renderCartItems() {
+            if (cart.length === 0) {
+                cartItems.innerHTML = `<p style="text-align: center; padding: 40px 20px; color: #888;">Your cart is empty</p>`;
+                return;
+            }
+
+            cartItems.innerHTML = '';
+            cart.forEach(item => {
+                const cartItem = document.createElement('div');
+                cartItem.className = 'cart-item';
+                cartItem.innerHTML = `
+                    <div style="width: 80px; height: 80px; border-radius: 8px; overflow: hidden;">
+                        <img src="${item.image}" alt="${item.name}" style="width:100%; height:100%; object-fit:cover;">
+                    </div>
+                    <div style="flex:1;">
+                        <div style="font-weight:600;">${item.name}</div>
+                        <div style="color: #2e7d32; font-weight:700; margin:5px 0;">$${item.price.toFixed(2)} each</div>
+                        <div style="display:flex; justify-content:space-between; align-items:center; margin-top:10px;">
+                            <div>
+                                Qty: ${item.quantity}
+                            </div>
+                            <button class="remove-item" data-id="${item.id}" style="background:none; border:none; color:#e53e3e; cursor:pointer;">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </div>
+                    </div>
+                `;
+                cartItems.appendChild(cartItem);
             });
-        });
-        
-        // Fade-in animation on scroll
-        const fadeElements = document.querySelectorAll('.fade-in-up');
-        
-        const fadeInOnScroll = () => {
-            fadeElements.forEach(element => {
-                const elementTop = element.getBoundingClientRect().top;
-                const elementVisible = 150;
-                
-                if (elementTop < window.innerHeight - elementVisible) {
-                    element.classList.add('active');
-                }
+
+            document.querySelectorAll('.remove-item').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const id = parseInt(this.dataset.id);
+                    cart = cart.filter(item => item.id !== id);
+                    localStorage.setItem('wetineCart', JSON.stringify(cart));
+                    updateCartDisplay();
+                    renderProducts(document.querySelector('.filter-btn.active').dataset.filter);
+                });
             });
-        };
-        
-        // Set initial state
-        fadeElements.forEach(element => {
-            element.classList.remove('active');
-        });
-        
-        // Check on scroll and load
-        window.addEventListener('scroll', fadeInOnScroll);
-        window.addEventListener('load', fadeInOnScroll);
-        
-        // Form submission
-        const contactForm = document.getElementById('contactForm');
-        
-        contactForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            
-            // Get form data
-            const formData = new FormData(contactForm);
-            const formValues = Object.fromEntries(formData);
-            
-            // In a real implementation, you would send this to a server
-            console.log('Form submitted:', formValues);
-            
-            // Show success message
-            alert('Thank you for your message! We will contact you within 24 hours.');
-            contactForm.reset();
-        });
-        
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                
-                const targetId = this.getAttribute('href');
-                if (targetId === '#') return;
-                
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
-                }
+        }
+
+        function toggleCart() {
+            cartModal.classList.toggle('active');
+            overlay.classList.toggle('active');
+            document.body.style.overflow = cartModal.classList.contains('active') ? 'hidden' : 'auto';
+        }
+
+        // ===== WHATSAPP CHECKOUT =====
+        function checkoutViaWhatsApp() {
+            if (cart.length === 0) {
+                showNotification('Your cart is empty');
+                return;
+            }
+
+            let message = `*ORDER FROM WETINE ENTERPRISES WEBSITE*\n\n`;
+            message += `*Order Details:*\n`;
+            cart.forEach((item, index) => {
+                message += `${index + 1}. ${item.name} - $${item.price.toFixed(2)} x ${item.quantity} = $${(item.price * item.quantity).toFixed(2)}\n`;
             });
-        });
-        
-        // Adjust video opacity based on scroll position
-        window.addEventListener('scroll', () => {
-            const scrollPercent = window.scrollY / (document.body.scrollHeight - window.innerHeight);
-            // Adjust opacity from 0.12 to 0.08 based on scroll
-            const opacity = 0.12 - (scrollPercent * 0.04);
-            video.style.opacity = Math.max(0.08, opacity);
-        });
+            const totalPrice = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            message += `\n*Total Amount: $${totalPrice.toFixed(2)}*\n\n`;
+            message += `Please confirm this order and provide delivery details.`;
+
+            const encodedMessage = encodeURIComponent(message);
+            const whatsappUrl = `https://wa.me/263788375175?text=${encodedMessage}`;
+            window.open(whatsappUrl, '_blank');
+        }
+
+        // ===== UI HELPERS =====
+        function showProductSection(e) {
+            if (e) e.preventDefault();
+            productSection.style.display = 'block';
+            window.scrollTo({
+                top: productSection.offsetTop - 80,
+                behavior: 'smooth'
+            });
+            mainNav.classList.remove('active');
+        }
+
+        function showNotification(message) {
+            const notification = document.createElement('div');
+            notification.textContent = message;
+            notification.style.cssText = `
+                position: fixed;
+                top: 100px;
+                right: 20px;
+                background-color: #2e7d32;
+                color: white;
+                padding: 15px 25px;
+                border-radius: 5px;
+                box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+                z-index: 2000;
+                font-weight: 500;
+                transform: translateX(120%);
+                transition: transform 0.3s ease;
+            `;
+            document.body.appendChild(notification);
+            setTimeout(() => notification.style.transform = 'translateX(0)', 10);
+            setTimeout(() => {
+                notification.style.transform = 'translateX(120%)';
+                setTimeout(() => document.body.removeChild(notification), 300);
+            }, 3000);
+        }
     </script>
 </body>
 </html>
