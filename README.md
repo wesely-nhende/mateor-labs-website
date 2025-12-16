@@ -560,8 +560,9 @@
     <!-- Header -->
     <header class="main-header">
         <div class="container header-container">
-            <a href="prest.png">
-            </a>
+            <a href="#" class="logo">
+    <img src="prest.png" alt="Wetine Enterprises Logo">
+</a>
             <button class="mobile-menu-btn" id="mobileMenuBtn">
                 <i class="fas fa-bars"></i>
             </button>
