@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -560,9 +561,7 @@
     <!-- Header -->
     <header class="main-header">
         <div class="container header-container">
-            <a href="#" class="logo">
-                <i class="fas fa-warehouse"></i>
-                Wetine<span>Enterprises</span>
+            <a href="prest.png"logo">
             </a>
             <button class="mobile-menu-btn" id="mobileMenuBtn">
                 <i class="fas fa-bars"></i>
