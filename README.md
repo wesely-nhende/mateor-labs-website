@@ -7,9 +7,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-black: #000000;    /* Main brand black */
-            --dark-gray: #333333;       /* Darker shade for hover states */
-            --light-gray: #f5f5f5;      /* Light tint for backgrounds */
+            --primary-blue: #2563eb;    /* Main brand blue */
+            --dark-blue: #1d4ed8;       /* Darker shade for hover states */
+            --light-blue: #dbeafe;      /* Light tint for backgrounds */
             --accent-amber: #ff8f00;     /* Accent color for highlights */
             --neutral-dark: #2d3748;
             --neutral-gray: #718096;
@@ -50,7 +50,7 @@
         .logo {
             font-size: 24px;
             font-weight: 700;
-            color: var(--primary-black);
+            color: var(--primary-blue);
             text-decoration: none;
             display: flex;
             align-items: center;
@@ -76,7 +76,7 @@
             transition: color 0.3s;
         }
         .nav-links a:hover {
-            color: var(--primary-black);
+            color: var(--primary-blue);
         }
         .cart-icon {
             position: relative;
@@ -111,7 +111,7 @@
         }
         /* Hero Section */
         .hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.9), rgba(51, 51, 51, 0.9)), url('https://images.unsplash.com/photo-1581094715295-bf7d63bd5c44?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80');
+            background: linear-gradient(rgba(37, 99, 235, 0.9), rgba(29, 78, 216, 0.9)), url('https://images.unsplash.com/photo-1581094715295-bf7d63bd5c44?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80');
             background-size: cover;
             background-position: center;
             color: var(--white);
@@ -133,7 +133,7 @@
         .cta-button {
             display: inline-block;
             background-color: var(--white);
-            color: var(--primary-black);
+            color: var(--primary-blue);
             padding: 15px 35px;
             border-radius: 5px;
             text-decoration: none;
@@ -142,7 +142,7 @@
             transition: all 0.3s ease;
         }
         .cta-button:hover {
-            background-color: var(--light-gray);
+            background-color: var(--light-blue);
             transform: translateY(-3px);
         }
         /* Services/Products Section */
@@ -186,7 +186,7 @@
         .service-icon {
             width: 70px;
             height: 70px;
-            background-color: var(--light-gray);
+            background-color: var(--light-blue);
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -195,7 +195,7 @@
         }
         .service-icon i {
             font-size: 30px;
-            color: var(--primary-black);
+            color: var(--primary-blue);
         }
         .service-card h3 {
             font-size: 1.5rem;
@@ -223,7 +223,7 @@
         .challenge-stat {
             font-size: 3rem;
             font-weight: 700;
-            color: var(--primary-black);
+            color: var(--primary-blue);
             margin-bottom: 15px;
             line-height: 1;
         }
@@ -264,11 +264,11 @@
             width: 60px;
             height: 60px;
             border-radius: 50%;
-            background-color: var(--light-gray);
+            background-color: var(--light-blue);
             display: flex;
             align-items: center;
             justify-content: center;
-            color: var(--primary-black);
+            color: var(--primary-blue);
             font-size: 24px;
             font-weight: 700;
         }
@@ -294,8 +294,8 @@
         }
         .filter-btn {
             background-color: var(--white);
-            border: 2px solid var(--primary-black);
-            color: var(--primary-black);
+            border: 2px solid var(--primary-blue);
+            color: var(--primary-blue);
             padding: 10px 25px;
             border-radius: 30px;
             cursor: pointer;
@@ -303,7 +303,7 @@
             transition: all 0.3s ease;
         }
         .filter-btn.active, .filter-btn:hover {
-            background-color: var(--primary-black);
+            background-color: var(--primary-blue);
             color: var(--white);
         }
         .product-grid {
@@ -346,7 +346,7 @@
             overflow: hidden;
         }
         .product-price {
-            color: var(--primary-black);
+            color: var(--primary-blue);
             font-size: 1.5rem;
             font-weight: 700;
             margin-bottom: 15px;
@@ -357,7 +357,7 @@
             align-items: center;
         }
         .add-to-cart {
-            background-color: var(--primary-black);
+            background-color: var(--primary-blue);
             color: white;
             border: none;
             padding: 10px 20px;
@@ -370,7 +370,7 @@
             transition: background-color 0.3s ease;
         }
         .add-to-cart:hover {
-            background-color: var(--dark-gray);
+            background-color: var(--dark-blue);
         }
         /* Cart Modal */
         .cart-modal {
@@ -389,7 +389,7 @@
             right: 0;
         }
         .cart-header {
-            background-color: var(--primary-black);
+            background-color: var(--primary-blue);
             color: white;
             padding: 20px;
             display: flex;
@@ -462,7 +462,7 @@
         }
         /* Footer */
         .main-footer {
-            background-color: var(--primary-black);
+            background-color: var(--neutral-dark);
             color: var(--white);
             padding: 70px 0 30px;
         }
@@ -485,7 +485,7 @@
             left: 0;
             width: 50px;
             height: 3px;
-            background-color: var(--white);
+            background-color: var(--primary-blue);
         }
         .contact-info {
             display: flex;
@@ -966,7 +966,7 @@
                     </div>
                     <div style="flex:1;">
                         <div style="font-weight:600;">${item.name}</div>
-                        <div style="color: #000000; font-weight:700; margin:5px 0;">$${item.price.toFixed(2)} each</div>
+                        <div style="color: #2563eb; font-weight:700; margin:5px 0;">$${item.price.toFixed(2)} each</div>
                         <div style="display:flex; justify-content:space-between; align-items:center; margin-top:10px;">
                             <div>
                                 Qty: ${item.quantity}
@@ -1036,7 +1036,7 @@
                 position: fixed;
                 top: 100px;
                 right: 20px;
-                background-color: #000000;
+                background-color: #2563eb;
                 color: white;
                 padding: 15px 25px;
                 border-radius: 5px;
